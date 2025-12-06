@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 
 const testimonials = [
@@ -36,15 +37,30 @@ export function ClientsSection() {
           </p>
         </div>
 
-        {/* Client Logos Placeholder */}
-        <div className="mb-16 p-8 bg-white rounded-2xl border-2 border-dashed border-gray-200">
+        {/* Client Logos */}
+        <div className="mb-16 p-8 bg-white rounded-2xl shadow-sm">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="w-full h-16 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-sm font-medium">
-                Client Logo {i}
+            {/* Placeholder logos using grayscale images */}
+            {[
+              { name: "Mining Company 1", src: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=200&h=80&auto=format&fit=crop" },
+              { name: "Mining Company 2", src: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=200&h=80&auto=format&fit=crop" },
+              { name: "Mining Company 3", src: "https://images.unsplash.com/photo-1565464027194-7957a2295fb7?q=80&w=200&h=80&auto=format&fit=crop" },
+              { name: "Mining Company 4", src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=200&h=80&auto=format&fit=crop" },
+            ].map((client, i) => (
+              <div key={i} className="relative w-full h-16 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                <Image
+                  src={client.src}
+                  alt={client.name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
               </div>
             ))}
           </div>
+          <p className="text-center text-sm text-gray-500 mt-6">
+            Trusted by leading mining operations across West Africa
+          </p>
         </div>
 
         {/* Testimonials */}

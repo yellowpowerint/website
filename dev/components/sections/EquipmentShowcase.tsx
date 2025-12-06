@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Wrench, Zap, Shield } from "lucide-react";
 
@@ -59,14 +60,29 @@ export function EquipmentShowcase() {
             </Button>
           </div>
 
-          {/* Image Placeholder */}
+          {/* Equipment Image */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-navy/10 to-gold/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-300">
-              <div className="text-center text-gray-400">
-                <Wrench className="h-16 w-16 mx-auto mb-4" />
-                <p className="text-sm font-medium">Equipment Showcase Image</p>
-                <p className="text-xs">(To be added in content phase)</p>
-              </div>
+            <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="https://images.unsplash.com/photo-1625231334168-35067f8853ed?q=80&w=2070&auto=format&fit=crop"
+                alt="Modern mining equipment and drilling machinery"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+              {/* Accent border */}
+              <div className="absolute inset-0 rounded-2xl ring-4 ring-gold/20 ring-offset-4" />
+            </div>
+            {/* Secondary image overlay for visual interest */}
+            <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-xl overflow-hidden shadow-xl border-4 border-white hidden lg:block">
+              <Image
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2076&auto=format&fit=crop"
+                alt="Mining drill in action"
+                fill
+                className="object-cover"
+                sizes="192px"
+              />
             </div>
           </div>
         </div>
