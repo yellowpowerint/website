@@ -147,6 +147,33 @@ export const MAIN_NAV: NavItem[] = [
   {
     title: "Careers",
     href: "/careers",
+    children: [
+      {
+        title: "Careers Overview",
+        href: "/careers",
+        description: "Why work with Yellow Power International",
+      },
+      {
+        title: "Job Openings",
+        href: "/careers/jobs",
+        description: "Browse current opportunities",
+      },
+      {
+        title: "Training & Development",
+        href: "/careers/training",
+        description: "Learn about our training programs",
+      },
+      {
+        title: "Life at YPI",
+        href: "/careers/life-at-ypi",
+        description: "Culture, benefits, and employee stories",
+      },
+      {
+        title: "Application Process",
+        href: "/careers/application-process",
+        description: "How to apply and what to expect",
+      },
+    ],
   },
   {
     title: "News & Media",
