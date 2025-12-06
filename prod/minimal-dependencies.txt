@@ -1,0 +1,32 @@
+# Minimal Working Dependencies for Phase 0
+# If npm install completely fails, you can manually install these core packages
+
+Critical Dependencies (Must Have):
+- next@14.2.0
+- react@18.3.0  
+- react-dom@18.3.0
+- typescript@5.3.0
+
+Critical DevDependencies (Must Have):
+- @types/node@20
+- @types/react@18
+- @types/react-dom@18
+- tailwindcss@3.4.0
+- postcss@8
+- autoprefixer@10
+- eslint@8
+- eslint-config-next@14.2.0
+
+Optional (Can be added later in Phase 1+):
+- framer-motion@11.0.0
+- zod@3.22.0
+- zustand@4.5.0
+- @tanstack/react-query@5.0.0
+
+Minimal Installation Command:
+npm install next@14.2.0 react@18.3.0 react-dom@18.3.0 --legacy-peer-deps
+
+Then install dev dependencies:
+npm install -D typescript@5.3.0 @types/node@20 @types/react@18 @types/react-dom@18 tailwindcss@3.4.0 postcss@8 autoprefixer@10 eslint@8 eslint-config-next@14.2.0 --legacy-peer-deps
+
+This will give you a working Next.js 14 setup. Additional dependencies can be added later.
