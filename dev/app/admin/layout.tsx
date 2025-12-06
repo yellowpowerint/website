@@ -1,9 +1,10 @@
 /**
  * Admin Layout
- * Protects all admin routes and provides admin shell
+ * Protects admin routes (except login) and provides admin shell
  */
 
 import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import { getAdminSession } from '@/lib/auth/getSession';
 import { Sidebar } from '@/components/admin/Sidebar';
 import { AdminHeader } from '@/components/admin/AdminHeader';
@@ -13,7 +14,19 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Check authentication
+  // Get current path
+  const headersList = headers();
+  const pathname = headersList.get('x-pathname') || '';
+  
+  // Skip authentication check for login page
+  const isLoginPage = pathname === '/admin/login' || pathname.includes('/admin/login');
+  
+  if (isLoginPage) {
+    // Render login page without admin shell
+    return <>{children}</>;
+  }
+
+  // Check authentication for all other admin routes
   const session = await getAdminSession();
 
   if (!session) {
