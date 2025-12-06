@@ -1,14 +1,27 @@
-/**
- * Utility functions for the application
- * Phase 0: Placeholder file
- */
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-// Utility function to merge class names (will be enhanced in later phases)
-export function cn(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(' ');
+/**
+ * Utility function to merge Tailwind CSS classes with proper precedence
+ * Used throughout shadcn/ui components
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
 
-// Placeholder for future utilities
-export const utils = {
-  cn,
-};
+/**
+ * Format phone number for display
+ */
+export function formatPhone(phone: string): string {
+  return phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")
+}
+
+/**
+ * Format currency
+ */
+export function formatCurrency(amount: number, currency: string = "GHS"): string {
+  return new Intl.NumberFormat("en-GH", {
+    style: "currency",
+    currency: currency,
+  }).format(amount)
+}
