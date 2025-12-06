@@ -1,0 +1,31 @@
+# NEWS
+
+News article hero images (Open Graph optimized)
+
+## Required Files
+
+- `tarkwa-project.jpg` - tarkwa project
+- `new-equipment.jpg` - new equipment
+- `excellence-award.jpg` - excellence award
+- `burkina-faso-launch.jpg` - burkina faso launch
+- `rc-drilling.jpg` - rc drilling
+- `iso-certification.jpg` - iso certification
+
+## Status
+
+🔴 **PLACEHOLDER FILES** - Replace with actual assets before production
+
+## Specifications
+
+See `/prod/CONTENT_ASSET_MANIFEST.md` for detailed specifications.
+
+## Upload Instructions
+
+1. Prepare high-quality assets matching the specifications
+2. Name files exactly as listed above
+3. Optimize file sizes
+4. Replace placeholder files in this directory
+5. Verify on development server
+6. Test that no 404 errors occur
+
+**Last Updated:** 12/6/2025
