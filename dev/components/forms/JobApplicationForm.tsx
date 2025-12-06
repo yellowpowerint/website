@@ -80,24 +80,73 @@ export function JobApplicationForm({ jobTitle, jobId }: JobApplicationFormProps)
     }
   };
 
-  const onSubmit = (data: FormData) => {
-    // Phase 7: Frontend-only submission (no real API call)
-    console.log("Job Application Submitted:", {
-      jobId,
-      jobTitle,
-      ...data,
-    });
+  const onSubmit = async (data: FormData) => {
+    try {
+      // Split fullName into firstName and lastName
+      const nameParts = data.fullName.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || nameParts[0];
 
-    // Simulate success
-    setIsSubmitted(true);
+      // Prepare API payload
+      const apiPayload: Record<string, unknown> = {
+        firstName,
+        lastName,
+        email: data.email,
+        phone: data.phone,
+        address: data.location,
+        jobId,
+        positionApplying: jobTitle,
+        yearsOfExperience: data.yearsExperience,
+        currentEmployer: data.currentRole,
+        education: data.relevantSkills, // Using skills as education placeholder
+        coverLetter: data.coverLetter,
+      };
 
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      reset();
-      setStep(1);
-      setIsSubmitted(false);
-      setSelectedFileName("");
-    }, 5000);
+      // Handle CV file upload if present
+      if (data.cvFile && data.cvFile[0]) {
+        const file = data.cvFile[0] as File;
+        
+        // Convert file to base64
+        const reader = new FileReader();
+        const base64Promise = new Promise<string>((resolve, reject) => {
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+
+        const base64Data = await base64Promise;
+        
+        apiPayload.cvFileName = file.name;
+        apiPayload.cvFileSize = file.size;
+        apiPayload.cvFileType = file.type;
+        apiPayload.cvFileData = base64Data;
+      }
+
+      const response = await fetch('/api/careers/applications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(apiPayload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to submit application');
+      }
+
+      setIsSubmitted(true);
+
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        reset();
+        setStep(1);
+        setIsSubmitted(false);
+        setSelectedFileName("");
+      }, 5000);
+    } catch (error) {
+      console.error('Job application submission error:', error);
+      alert(error instanceof Error ? error.message : 'Failed to submit application. Please try again.');
+    }
   };
 
   if (isSubmitted) {

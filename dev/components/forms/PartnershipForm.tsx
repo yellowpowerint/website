@@ -38,12 +38,39 @@ export function PartnershipForm() {
   });
 
   const onSubmit = async (data: PartnershipFormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    console.log("Partnership Application Submitted:", data);
-    setSubmittedData(data);
-    setIsSubmitted(true);
+    try {
+      // Map form data to API schema
+      const apiPayload = {
+        companyName: data.companyName,
+        contactName: data.contactPerson,
+        email: data.email,
+        phone: data.phone,
+        website: '', // Optional field not in current form
+        partnershipType: data.partnershipType,
+        industry: 'Mining', // Default since not in form
+        proposalSummary: data.proposal,
+        expectedOutcomes: data.proposal, // Use proposal as outcomes
+        timeline: undefined,
+      };
+
+      const response = await fetch('/api/partnerships', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(apiPayload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to submit partnership application');
+      }
+
+      setSubmittedData(data);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Partnership application error:', error);
+      alert(error instanceof Error ? error.message : 'Failed to submit application. Please try again.');
+    }
   };
 
   const resetForm = () => {

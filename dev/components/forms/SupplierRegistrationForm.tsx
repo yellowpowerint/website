@@ -38,10 +38,41 @@ export function SupplierRegistrationForm() {
   });
 
   const onSubmit = async (data: SupplierFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Supplier Registration Submitted:", data);
-    setSubmittedData(data);
-    setIsSubmitted(true);
+    try {
+      // Map form data to API schema
+      const apiPayload = {
+        companyName: data.companyName,
+        registrationNumber: data.registrationNumber,
+        contactName: data.contactPerson,
+        email: data.email,
+        phone: data.phone,
+        address: data.country, // Use country as address for now
+        website: '',
+        productCategories: [data.categories], // Convert single category to array
+        yearsInBusiness: '5', // Default value
+        capabilities: data.capabilities,
+        certifications: undefined,
+        references: undefined,
+      };
+
+      const response = await fetch('/api/suppliers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(apiPayload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to submit supplier registration');
+      }
+
+      setSubmittedData(data);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Supplier registration error:', error);
+      alert(error instanceof Error ? error.message : 'Failed to submit registration. Please try again.');
+    }
   };
 
   const resetForm = () => {

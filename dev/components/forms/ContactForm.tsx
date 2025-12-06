@@ -109,20 +109,31 @@ export function ContactForm() {
   };
 
   const onSubmit = async (data: FormData) => {
-    // Phase 8: Frontend-only submission (no real API call)
-    console.log('Contact Form Submitted:', data);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+      const result = await response.json();
 
-    setIsSubmitted(true);
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to submit inquiry');
+      }
 
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      reset();
-      setSelectedCategory('');
-      setIsSubmitted(false);
-    }, 5000);
+      setIsSubmitted(true);
+
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        reset();
+        setSelectedCategory('');
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      alert(error instanceof Error ? error.message : 'Failed to submit inquiry. Please try again.');
+    }
   };
 
   if (isSubmitted) {

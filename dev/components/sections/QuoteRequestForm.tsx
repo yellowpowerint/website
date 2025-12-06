@@ -131,12 +131,66 @@ export function QuoteRequestForm() {
   };
 
   const onSubmit = async (data: QuoteFormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    console.log("Quote Request Submitted:", data);
-    setSubmittedData(data);
-    setIsSubmitted(true);
+    try {
+      // Map form data to API schema
+      const serviceName = SERVICES.find(s => s.id === data.serviceId)?.name || data.serviceId;
+      const serviceTypeText = data.serviceType ? `${serviceName} - ${data.serviceType}` : serviceName;
+      
+      // Build project details from multiple fields
+      const projectDetailsArray = [
+        `Location: ${data.projectLocation}`,
+        `Mine Type: ${data.mineType}`,
+        data.estimatedStartDate && `Start Date: ${data.estimatedStartDate}`,
+        data.projectDurationMonths && `Duration: ${data.projectDurationMonths} months`,
+        data.drillingMeters && `Drilling Meters: ${data.drillingMeters}m`,
+        data.additionalDetails,
+      ].filter(Boolean);
+      
+      const projectDetails = projectDetailsArray.join('\n');
+      
+      // Build timeline
+      const timeline = [
+        data.urgency && `Urgency: ${data.urgency}`,
+        data.estimatedStartDate && `Start: ${data.estimatedStartDate}`,
+        data.projectDurationMonths && `Duration: ${data.projectDurationMonths} months`,
+      ].filter(Boolean).join(', ');
+      
+      // Build message
+      const message = [
+        `Preferred Contact Method: ${data.preferredContactMethod}`,
+        data.preferredContactTime && `Best Time to Contact: ${data.preferredContactTime}`,
+        data.additionalDetails && `Additional Notes: ${data.additionalDetails}`,
+      ].filter(Boolean).join('\n');
+      
+      const apiPayload = {
+        fullName: data.contactName,
+        email: data.email,
+        phone: data.phone,
+        company: data.companyName,
+        serviceType: serviceTypeText,
+        projectDetails,
+        timeline: timeline || undefined,
+        message,
+      };
+
+      const response = await fetch('/api/quotes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(apiPayload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to submit quote request');
+      }
+
+      setSubmittedData(data);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Quote submission error:', error);
+      alert(error instanceof Error ? error.message : 'Failed to submit quote request. Please try again.');
+    }
   };
 
   const resetForm = () => {
