@@ -326,12 +326,16 @@ export function JobApplicationForm({ jobTitle, jobId }: JobApplicationFormProps)
                   id="cvFile"
                   type="file"
                   accept=".pdf,.doc,.docx"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                      setSelectedFileName(file.name);
+                  {...register("cvFile", {
+                    onChange: (e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        setSelectedFileName(file.name);
+                      } else {
+                        setSelectedFileName("");
+                      }
                     }
-                  }}
+                  })}
                   className="cursor-pointer"
                 />
                 {selectedFileName && (
