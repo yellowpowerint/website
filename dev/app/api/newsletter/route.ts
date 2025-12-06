@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { newsletterSchema } from '@/lib/validations/newsletter';
-import { sendEmail } from '@/lib/api/email';
-import { emailConfig } from '@/lib/config/env';
+import { subscribeToNewsletter, isNewsletterConfigured } from '@/lib/api/newsletter';
 import { ZodError } from 'zod';
 
 export async function POST(req: NextRequest) {
@@ -12,21 +11,27 @@ export async function POST(req: NextRequest) {
     // Validate with Zod
     const validatedData = newsletterSchema.parse(body);
 
-    // Send notification email (in future, integrate with email marketing service)
-    await sendEmail({
-      to: emailConfig.toEmail,
-      subject: 'New Newsletter Subscription',
-      html: `
-        <h2>New Newsletter Subscription</h2>
-        <p><strong>Email:</strong> ${validatedData.email}</p>
-        <p><em>Note: Add this email to your newsletter distribution list.</em></p>
-      `,
+    // Check if newsletter service is configured
+    if (!isNewsletterConfigured()) {
+      console.warn('Newsletter service not configured, but accepting subscription');
+    }
+
+    // Subscribe to newsletter (Mailchimp or SendGrid)
+    const result = await subscribeToNewsletter({
+      email: validatedData.email,
     });
 
-    return NextResponse.json({
-      success: true,
-      message: 'Successfully subscribed to newsletter!',
-    }, { status: 200 });
+    if (result.success) {
+      return NextResponse.json({
+        success: true,
+        message: result.message,
+      }, { status: 200 });
+    } else {
+      return NextResponse.json({
+        success: false,
+        error: result.message,
+      }, { status: 400 });
+    }
 
   } catch (error) {
     if (error instanceof ZodError) {

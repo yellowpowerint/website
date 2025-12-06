@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ContactForm } from '@/components/forms/ContactForm';
+import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
 import { DEPARTMENT_CONTACTS, EMERGENCY_CONTACT, SOCIAL_MEDIA } from '@/lib/constants/offices';
 
 export const metadata: Metadata = {
@@ -118,18 +119,10 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button 
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  asChild
-                >
-                  <a 
-                    href={SOCIAL_MEDIA.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Chat on WhatsApp
-                  </a>
-                </Button>
+                <WhatsAppButton 
+                  message="Hello, I have an inquiry about your services."
+                  className="w-full"
+                />
               </CardContent>
             </Card>
 

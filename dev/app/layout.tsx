@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import { PowerBot } from "@/components/ai/PowerBot";
+import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import "../styles/globals.css";
 import { DEFAULT_METADATA } from "@/lib/seo/config";
 import { organizationSchema } from "@/lib/structured-data/organization";
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body className="antialiased font-sans">
         <RootLayoutWrapper>{children}</RootLayoutWrapper>
         <PowerBot />
+        <WhatsAppButton variant="floating" />
         <Analytics />
       </body>
     </html>

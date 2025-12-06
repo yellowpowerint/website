@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Calendar, User, Tag, ArrowLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ShareButtons } from '@/components/ui/ShareButtons';
+import { ShareButtons } from '@/components/shared/ShareButtons';
 import { NewsGrid } from '@/components/sections/NewsGrid';
 import { getNewsArticleBySlug, getRelatedNews, NEWS_ARTICLES } from '@/lib/constants/news';
 
@@ -107,9 +107,10 @@ export default function NewsArticlePage({ params }: NewsArticlePageProps) {
         {/* Share buttons */}
         <div className="mb-12">
           <ShareButtons
-            url={`/news/${article.slug}`}
+            url={`https://yellowpowerinternational.com/news/${article.slug}`}
             title={article.title}
             description={article.excerpt}
+            variant="compact"
           />
         </div>
 
@@ -136,9 +137,10 @@ export default function NewsArticlePage({ params }: NewsArticlePageProps) {
         <div className="mt-12 pt-8 border-t">
           <p className="text-sm font-medium text-gray-600 mb-4">Share this article:</p>
           <ShareButtons
-            url={`/news/${article.slug}`}
+            url={`https://yellowpowerinternational.com/news/${article.slug}`}
             title={article.title}
             description={article.excerpt}
+            variant="compact"
           />
         </div>
       </article>

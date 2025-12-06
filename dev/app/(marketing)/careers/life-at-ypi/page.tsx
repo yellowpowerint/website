@@ -3,7 +3,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BenefitsGrid } from "@/components/sections/BenefitsGrid";
 import { EmployeeTestimonial } from "@/components/ui/EmployeeTestimonial";
+import { VideoTestimonialGrid } from "@/components/sections/VideoTestimonialCard";
 import { BENEFITS, EMPLOYEE_TESTIMONIALS } from "@/lib/constants/careers";
+import { getEmployeeTestimonials } from "@/lib/constants/testimonials";
 import { Heart, Users, Sparkles, Award } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -93,6 +95,19 @@ export default function LifeAtYPIPage() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Video Testimonials */}
+      <section className="py-16">
+        <div className="container max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-navy mb-4">Employee Video Testimonials</h2>
+            <p className="text-gray-600">
+              Watch our team members share their experiences and career growth stories
+            </p>
+          </div>
+          <VideoTestimonialGrid testimonials={getEmployeeTestimonials()} columns={3} />
         </div>
       </section>
 

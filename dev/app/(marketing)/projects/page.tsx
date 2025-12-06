@@ -3,7 +3,46 @@
 import { useState, useEffect } from "react";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { ProjectFilter, type FilterValues } from "@/components/sections/ProjectFilter";
+import { ProjectMap } from "@/components/sections/ProjectMap";
 import { PROJECTS } from "@/lib/constants/projects";
+import { MapPin } from "lucide-react";
+
+// Helper function to get approximate coordinates for project locations
+function getProjectCoordinates(location: string, country: string): { lat: number; lng: number } {
+  const coordinates: Record<string, { lat: number; lng: number }> = {
+    // Ghana
+    'Tarkwa': { lat: 5.3033, lng: -1.9833 },
+    'Obuasi': { lat: 6.1894, lng: -1.6688 },
+    'Akyem': { lat: 6.25, lng: -0.95 },
+    'Prestea': { lat: 5.4333, lng: -2.15 },
+    'Asankrangwa': { lat: 5.4667, lng: -2.4833 },
+    // Burkina Faso
+    'Banfora': { lat: 10.6333, lng: -4.7667 },
+    'Ouagadougou': { lat: 12.3686, lng: -1.5275 },
+    'Bobo-Dioulasso': { lat: 11.1833, lng: -4.2833 },
+    // Mali
+    'Kayes': { lat: 14.4461, lng: -11.4425 },
+    'Bamako': { lat: 12.6392, lng: -8.0029 },
+    // Côte d\'Ivoire
+    'Abidjan': { lat: 5.3364, lng: -4.0267 },
+    'Yamoussoukro': { lat: 6.8276, lng: -5.2893 },
+  };
+
+  // Try to find exact match first
+  if (coordinates[location]) {
+    return coordinates[location];
+  }
+
+  // Fallback to country center
+  const countryDefaults: Record<string, { lat: number; lng: number }> = {
+    'Ghana': { lat: 7.9465, lng: -1.0232 },
+    'Burkina Faso': { lat: 12.3686, lng: -1.5275 },
+    'Mali': { lat: 17.5707, lng: -3.9962 },
+    'Côte d\'Ivoire': { lat: 7.54, lng: -5.5471 },
+  };
+
+  return countryDefaults[country] || { lat: 7.9465, lng: -1.0232 };
+}
 
 export default function ProjectsPage() {
   const [filters, setFilters] = useState<FilterValues>({
@@ -87,7 +126,34 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      {/* Project Map Section */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <MapPin className="h-12 w-12 mx-auto mb-4 text-gold-500" />
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Project Locations
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Explore our project portfolio across West Africa. Click on markers to view project details.
+            </p>
+          </div>
+          <ProjectMap 
+            projects={PROJECTS.map(p => ({
+              id: p.slug,
+              name: p.title,
+              location: p.location + ', ' + p.country,
+              services: p.services,
+              status: p.status.charAt(0).toUpperCase() + p.status.slice(1),
+              coordinates: getProjectCoordinates(p.location, p.country),
+              year: p.startDate.split('-')[0],
+            }))}
+            height="600px"
+          />
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
         <div className="container">
           {filteredProjects.length > 0 ? (
             <>

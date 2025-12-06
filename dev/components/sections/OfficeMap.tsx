@@ -95,13 +95,50 @@ export function OfficeMap({ offices, className = '', height = '500px' }: OfficeM
               key={office.id}
               position={[office.coordinates.lat, office.coordinates.lng]}
             >
-              <Popup>
-                <div className="text-sm">
-                  <p className="font-bold text-navy-600 mb-1">{office.name}</p>
-                  <p className="text-gray-600">{office.city}</p>
-                  <p className="text-gray-600">{office.country}</p>
+              <Popup maxWidth={300}>
+                <div className="text-sm p-2">
+                  <p className="font-bold text-navy-600 mb-2 text-base">{office.name}</p>
                   {office.isHeadquarters && (
-                    <p className="text-gold-600 font-semibold mt-1 text-xs">Headquarters</p>
+                    <span className="inline-block px-2 py-1 bg-gold-100 text-gold-700 text-xs rounded-full mb-2">
+                      Headquarters
+                    </span>
+                  )}
+                  <div className="space-y-1 mb-3">
+                    <p className="text-gray-700 font-medium">{office.city}</p>
+                    <p className="text-gray-600">{office.country}</p>
+                    <p className="text-gray-600 text-xs">{office.address}</p>
+                  </div>
+                  {office.phone && (
+                    <div className="border-t pt-2 mb-2">
+                      <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Contact</p>
+                      <p className="text-gray-700">
+                        <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="hover:text-gold-600">
+                          {office.phone}
+                        </a>
+                      </p>
+                      {office.email && (
+                        <p className="text-gray-700 text-xs">
+                          <a href={`mailto:${office.email}`} className="hover:text-gold-600">
+                            {office.email}
+                          </a>
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  {office.services && office.services.length > 0 && (
+                    <div className="border-t pt-2">
+                      <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Services</p>
+                      <div className="flex flex-wrap gap-1">
+                        {office.services.slice(0, 3).map((service, idx) => (
+                          <span key={idx} className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">
+                            {service}
+                          </span>
+                        ))}
+                        {office.services.length > 3 && (
+                          <span className="text-xs text-gray-500">+{office.services.length - 3} more</span>
+                        )}
+                      </div>
+                    </div>
                   )}
                 </div>
               </Popup>
