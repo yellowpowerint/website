@@ -1,10 +1,23 @@
 'use client';
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { MapPin } from 'lucide-react';
 import { OfficeCard } from '@/components/sections/OfficeCard';
-import { OfficeMap } from '@/components/sections/OfficeMap';
 import { OFFICE_LOCATIONS, getAllCountries } from '@/lib/constants/offices';
+
+// Dynamic import for OfficeMap to avoid SSR issues with Leaflet
+const OfficeMap = dynamic(
+  () => import('@/components/sections/OfficeMap').then((mod) => mod.OfficeMap),
+  {
+    loading: () => (
+      <div className="bg-gray-200 rounded-xl flex items-center justify-center h-[500px]">
+        <p className="text-gray-500">Loading map...</p>
+      </div>
+    ),
+    ssr: false,
+  }
+);
 
 export function LocationsClient() {
   const countries = getAllCountries();

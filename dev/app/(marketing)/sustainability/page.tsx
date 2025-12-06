@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ImpactMetrics } from "@/components/sections/ImpactMetrics";
 import { Leaf, Shield, Heart, Scale } from "lucide-react";
+
+// Dynamic import for ImpactMetrics (contains Recharts components)
+const ImpactMetrics = dynamic(
+  () => import("@/components/sections/ImpactMetrics").then((mod) => mod.ImpactMetrics),
+  {
+    loading: () => (
+      <div className="bg-gray-100 rounded-xl p-8 text-center">
+        <p className="text-gray-500">Loading impact metrics...</p>
+      </div>
+    ),
+    ssr: false,
+  }
+);
 
 export const metadata: Metadata = {
   title: "Sustainability & CSR | Yellow Power International",

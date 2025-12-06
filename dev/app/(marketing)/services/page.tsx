@@ -5,15 +5,36 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SERVICES } from "@/lib/constants/services";
 import { QuoteRequestForm } from "@/components/sections/QuoteRequestForm";
+import { buildMetadata } from "@/lib/seo/config";
+import { generateServiceSchemas } from "@/lib/structured-data/services";
+import { generateBreadcrumbSchema, COMMON_BREADCRUMBS } from "@/lib/structured-data/breadcrumbs";
 
-export const metadata: Metadata = {
-  title: "Services & Solutions | Yellow Power International",
-  description: "Comprehensive mining support services including drilling, load & haul, and construction across West Africa.",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Services & Solutions - Drilling, Mining & Construction",
+  description: "Comprehensive mining support services including production drilling, pre-split drilling, load & haul operations, and construction services across West Africa. Expert mining contractor with modern equipment fleet.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
+  const serviceSchemas = generateServiceSchemas();
+  const breadcrumbSchema = generateBreadcrumbSchema(COMMON_BREADCRUMBS.services);
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchemas),
+        }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+        suppressHydrationWarning
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-navy via-navy-600 to-navy-700 text-white py-20">
         <div className="container">

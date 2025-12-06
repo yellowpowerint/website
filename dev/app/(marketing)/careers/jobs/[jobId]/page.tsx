@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator";
 import { JobApplicationForm } from "@/components/forms/JobApplicationForm";
 import { getJobById, getCategoryById, JOBS } from "@/lib/constants/careers";
 import { MapPin, Briefcase, TrendingUp, Calendar, CheckCircle2, DollarSign, ArrowLeft } from "lucide-react";
+import { buildMetadata } from "@/lib/seo/config";
+import { generateBreadcrumbSchema, COMMON_BREADCRUMBS } from "@/lib/structured-data/breadcrumbs";
 
 interface JobPageProps {
   params: {
@@ -31,10 +33,12 @@ export async function generateMetadata({ params }: JobPageProps): Promise<Metada
     };
   }
 
-  return {
-    title: `${job.title} - ${job.location} | Yellow Power Careers`,
-    description: job.description,
-  };
+  return buildMetadata({
+    title: `${job.title} - ${job.location}`,
+    description: `Join Yellow Power International as ${job.title} in ${job.location}. ${job.description}`,
+    path: `/careers/jobs/${params.jobId}`,
+    type: "article",
+  });
 }
 
 export default function JobPage({ params }: JobPageProps) {
@@ -46,8 +50,68 @@ export default function JobPage({ params }: JobPageProps) {
 
   const category = getCategoryById(job.categoryId);
 
+  // Create JobPosting structured data
+  const employmentTypeMap: Record<string, string> = {
+    "Full-time": "FULL_TIME",
+    "Part-time": "PART_TIME",
+    "Contract": "CONTRACTOR",
+  };
+
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.title,
+    description: job.description,
+    datePosted: job.postedDate,
+    employmentType: employmentTypeMap[job.employmentType] || "FULL_TIME",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Yellow Power International",
+      sameAs: "https://yellowpowerinternational.com",
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: job.location,
+        addressCountry: "GH",
+      },
+    },
+    ...(job.salary && {
+      baseSalary: {
+        "@type": "MonetaryAmount",
+        currency: "GHS",
+        value: {
+          "@type": "QuantitativeValue",
+          value: job.salary,
+          unitText: "MONTH",
+        },
+      },
+    }),
+  };
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    ...COMMON_BREADCRUMBS.careers,
+    { name: 'Jobs', path: '/careers/jobs' },
+    { name: job.title, path: `/careers/jobs/${params.jobId}` },
+  ]);
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jobPostingSchema),
+        }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+        suppressHydrationWarning
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-navy via-indigo-900 to-navy-700 text-white py-16">
         <div className="container max-w-6xl">

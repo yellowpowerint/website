@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SafetyDashboard } from "@/components/sections/SafetyDashboard";
 import { Shield, GraduationCap, Wrench, AlertTriangle, FileCheck, HeartPulse } from "lucide-react";
+
+// Dynamic import for SafetyDashboard (contains Recharts components)
+const SafetyDashboard = dynamic(
+  () => import("@/components/sections/SafetyDashboard").then((mod) => mod.SafetyDashboard),
+  {
+    loading: () => (
+      <div className="bg-gray-100 rounded-xl p-8 text-center">
+        <p className="text-gray-500">Loading safety metrics...</p>
+      </div>
+    ),
+    ssr: false,
+  }
+);
 
 export const metadata: Metadata = {
   title: "Safety Excellence | Yellow Power International",
