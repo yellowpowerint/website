@@ -70,7 +70,7 @@ export function Header({ onMobileMenuToggle }: HeaderProps) {
 
         {/* Right Actions */}
         <div className="flex items-center justify-end gap-1 sm:gap-2 ml-auto">
-          <Button variant="default" size="sm" className="hidden sm:inline-flex bg-gold-500 hover:bg-gold-600 text-white font-semibold shadow-lg text-xs px-3 py-2" asChild>
+          <Button variant="default" size="sm" className="hidden sm:inline-flex bg-gold-500 hover:bg-gold-600 text-black font-semibold shadow-lg text-xs px-3 py-2" asChild>
             <Link href="/contact">GET QUOTE</Link>
           </Button>
           

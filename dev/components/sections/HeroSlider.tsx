@@ -168,7 +168,7 @@ export function HeroSlider() {
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 z-30 h-1 bg-white/20">
         <div
-          className="h-full bg-gold-500 transition-all duration-300"
+          className="h-full bg-white transition-all duration-300"
           style={{
             width: `${((currentSlide + 1) / SLIDES.length) * 100}%`,
           }}

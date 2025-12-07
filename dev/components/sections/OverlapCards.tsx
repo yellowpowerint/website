@@ -49,8 +49,8 @@ export function OverlapCards() {
                 key={index}
                 href={card.link}
                 className={cn(
-                  "group p-8 hover:bg-gray-50 transition-colors duration-300",
-                  index < cards.length - 1 && "lg:border-r border-gray-200"
+                  "group p-8 hover:bg-gray-50 transition-colors duration-300 relative",
+                  index < cards.length - 1 && "after:hidden lg:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:h-3/4 after:w-px after:bg-gray-200"
                 )}
               >
                 {/* Icon */}
