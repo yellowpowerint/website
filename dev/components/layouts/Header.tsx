@@ -21,7 +21,7 @@ interface HeaderProps {
 
 export function Header({ onMobileMenuToggle }: HeaderProps) {
   return (
-    <header className="fixed top-10 z-50 w-full border-b border-white/10 bg-navy-900/90 backdrop-blur-md text-white shadow-lg">
+    <header className="fixed top-10 z-50 w-full border-b border-white/10 backdrop-blur-md text-white shadow-lg" style={{ backgroundColor: '#003087' }}>
       <div className="container flex h-14 sm:h-16 items-center gap-2 px-2 sm:px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center mr-2 sm:mr-4 flex-shrink-0">

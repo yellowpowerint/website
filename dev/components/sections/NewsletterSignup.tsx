@@ -49,7 +49,7 @@ export function NewsletterSignup() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-navy to-navy-600 py-12 px-6 rounded-xl">
+    <div className="py-12 px-6 rounded-xl" style={{ backgroundColor: '#003087' }}>
       <div className="max-w-4xl mx-auto text-center">
         <Mail className="h-12 w-12 text-gold mx-auto mb-4" />
         <h3 className="text-2xl font-bold text-white mb-2">

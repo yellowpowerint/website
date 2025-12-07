@@ -67,7 +67,7 @@ export function EventsAndReports() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Upcoming Events */}
           <div>
-            <div className="bg-gold-600 rounded-lg p-6 md:p-8">
+            <div className="rounded-lg p-6 md:p-8" style={{ backgroundColor: '#003087' }}>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
                 Upcoming events
               </h2>
