@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 interface CommodityPrice {
   name: string;
+  displayName: string;
   symbol: string;
   price: number;
   change: number;
@@ -43,6 +44,7 @@ export async function GET() {
     const commodities: CommodityPrice[] = [
       {
         name: "Gold",
+        displayName: "SPOT GOLD",
         symbol: "XAU",
         price: data.gold?.price || 2650.50,
         change: data.gold?.change || 0,
@@ -50,6 +52,7 @@ export async function GET() {
       },
       {
         name: "Copper",
+        displayName: "COPPER",
         symbol: "HG",
         price: data.copper?.price || 4.15,
         change: data.copper?.change || 0,
@@ -57,6 +60,7 @@ export async function GET() {
       },
       {
         name: "Silver",
+        displayName: "SILVER",
         symbol: "XAG",
         price: data.silver?.price || 31.25,
         change: data.silver?.change || 0,
@@ -81,8 +85,8 @@ export async function GET() {
 
 function getDefaultCommodities(): CommodityPrice[] {
   return [
-    { name: "Gold", symbol: "XAU", price: 2650.50, change: 12.30, changePercent: 0.47 },
-    { name: "Copper", symbol: "HG", price: 4.15, change: -0.02, changePercent: -0.48 },
-    { name: "Silver", symbol: "XAG", price: 31.25, change: 0.45, changePercent: 1.46 }
+    { name: "Gold", displayName: "SPOT GOLD", symbol: "XAU", price: 2650.50, change: 12.30, changePercent: 0.47 },
+    { name: "Copper", displayName: "COPPER", symbol: "HG", price: 4.15, change: -0.02, changePercent: -0.48 },
+    { name: "Silver", displayName: "SILVER", symbol: "XAG", price: 31.25, change: 0.45, changePercent: 1.46 }
   ];
 }

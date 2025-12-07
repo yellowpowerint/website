@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 interface CommodityPrice {
   name: string;
+  displayName: string;
   symbol: string;
   price: number;
   change: number;
@@ -18,9 +19,9 @@ interface CommodityPrice {
 export function TopBar() {
   const router = useRouter();
   const [commodities, setCommodities] = React.useState<CommodityPrice[]>([
-    { name: "Gold", symbol: "XAU", price: 2650.50, change: 12.30, changePercent: 0.47 },
-    { name: "Copper", symbol: "HG", price: 4.15, change: -0.02, changePercent: -0.48 },
-    { name: "Silver", symbol: "XAG", price: 31.25, change: 0.45, changePercent: 1.46 }
+    { name: "Gold", displayName: "SPOT GOLD", symbol: "XAU", price: 2650.50, change: 12.30, changePercent: 0.47 },
+    { name: "Copper", displayName: "COPPER", symbol: "HG", price: 4.15, change: -0.02, changePercent: -0.48 },
+    { name: "Silver", displayName: "SILVER", symbol: "XAG", price: 31.25, change: 0.45, changePercent: 1.46 }
   ]);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
@@ -66,7 +67,7 @@ export function TopBar() {
         <div className="flex items-center gap-3 text-sm">
           <TrendingUp className="h-4 w-4 text-gold-500" />
           <div className="flex items-center gap-2 font-semibold">
-            <span className="text-gold-500">{currentCommodity.symbol}</span>
+            <span className="text-gold-500">{currentCommodity.displayName}</span>
             <span className="text-white">${currentCommodity.price.toFixed(2)}</span>
             <span className={cn(
               "text-xs flex items-center gap-1 font-medium",
@@ -79,13 +80,14 @@ export function TopBar() {
         </div>
 
         {/* Right: Publications & Search */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link 
             href="/publications" 
-            className="text-sm font-semibold hover:text-gold-400 transition-colors uppercase tracking-wide text-white"
+            className="text-xs font-medium hover:text-gold-400 transition-colors uppercase tracking-wide text-white"
           >
             PUBLICATIONS
           </Link>
+          <span className="text-gray-500">|</span>
           <Button
             variant="ghost"
             size="icon"
