@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { MapPin } from "lucide-react";
-import type mapboxgl from "mapbox-gl";
 
 interface Office {
   name: string;
@@ -17,76 +16,98 @@ interface MapSectionProps {
 
 export function MapSection({ offices }: MapSectionProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
   const [mapError, setMapError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!mapContainer.current || map.current) return;
+    if (!mapContainer.current) return;
 
-    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
-    if (!token) {
-      setMapError("Mapbox token not configured. Please set NEXT_PUBLIC_MAPBOX_TOKEN environment variable.");
-      return;
-    }
-
-    // Dynamically import mapbox-gl to avoid SSR issues
-    import("mapbox-gl").then((mapboxgl) => {
-      mapboxgl.default.accessToken = token;
-
+    // Load Leaflet dynamically (OpenStreetMap library)
+    const loadMap = async () => {
       try {
-        map.current = new mapboxgl.default.Map({
-          container: mapContainer.current!,
-          style: "mapbox://styles/mapbox/streets-v12",
-          center: [1.5, 6.0], // Centered on Ghana/West Africa
-          zoom: 4,
-        });
+        // Dynamically import Leaflet
+        const L = (await import("leaflet")).default;
 
-        // Add navigation controls
-        map.current.addControl(new mapboxgl.default.NavigationControl());
+        // Import Leaflet CSS
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+        document.head.appendChild(link);
+
+        // Wait for CSS to load
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        // Initialize map centered on West Africa
+        const map = L.map(mapContainer.current).setView([10.0, -2.0], 5);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 19,
+        }).addTo(map);
+
+        // Custom icon for markers (gold pins)
+        const goldIcon = L.divIcon({
+          className: "custom-pin",
+          html: `
+            <div style="position: relative; width: 40px; height: 40px;">
+              <div style="
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background: linear-gradient(135deg, #FDB714 0%, #F59E0B 100%);
+                border-radius: 50%;
+                border: 3px solid white;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="white">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+            </div>
+          `,
+          iconSize: [40, 40],
+          iconAnchor: [20, 20],
+        });
 
         // Add markers for each office
-        if (map.current) {
-          offices.forEach((office) => {
-            // Create custom marker element
-            const el = document.createElement("div");
-            el.className = "w-8 h-8 bg-gold rounded-full flex items-center justify-center shadow-lg cursor-pointer";
-            el.innerHTML = `<svg class="w-5 h-5 text-navy" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>`;
+        offices.forEach((office) => {
+          const marker = L.marker([office.coordinates[1], office.coordinates[0]], {
+            icon: goldIcon,
+          }).addTo(map);
 
-            // Create popup
-            const popup = new mapboxgl.default.Popup({ offset: 25 }).setHTML(
-              `<div class="p-2">
-                <h3 class="font-semibold text-navy">${office.name}</h3>
-                <p class="text-sm text-gray-600">${office.city}, ${office.country}</p>
-              </div>`
-            );
+          // Add popup with office info
+          marker.bindPopup(`
+            <div style="padding: 8px; min-width: 200px;">
+              <h3 style="font-weight: 600; color: #003087; margin-bottom: 4px; font-size: 16px;">
+                ${office.name}
+              </h3>
+              <p style="color: #6B7280; font-size: 14px; margin: 0;">
+                ${office.city}, ${office.country}
+              </p>
+            </div>
+          `);
+        });
 
-            // Add marker to map
-            new mapboxgl.default.Marker(el)
-              .setLngLat(office.coordinates)
-              .setPopup(popup)
-              .addTo(map.current!);
-          });
+        // Fit map to show all markers
+        if (offices.length > 0) {
+          const bounds = L.latLngBounds(
+            offices.map((office) => [office.coordinates[1], office.coordinates[0]])
+          );
+          map.fitBounds(bounds, { padding: [50, 50] });
         }
 
-        map.current.on("load", () => {
-          setMapLoaded(true);
-        });
+        setMapLoaded(true);
       } catch (error) {
-        console.error("Error initializing map:", error);
-        setMapError("Failed to initialize map. Please check your internet connection.");
-      }
-    }).catch((error) => {
-      console.error("Error loading Mapbox GL:", error);
-      setMapError("Failed to load map library.");
-    });
-
-    return () => {
-      if (map.current) {
-        map.current.remove();
+        console.error("Error loading map:", error);
+        setMapError("Failed to load map. Please check your internet connection.");
       }
     };
+
+    loadMap();
   }, [offices]);
 
   if (mapError) {

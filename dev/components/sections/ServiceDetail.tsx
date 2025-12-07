@@ -20,26 +20,15 @@ export function ServiceDetail({ service, children }: ServiceDetailProps) {
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy via-navy-600 to-navy-700 text-white py-20">
+      <section className="text-white py-20 pt-32" style={{ backgroundColor: '#003087' }}>
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               {service.name}
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed mb-6">
+            <p className="text-xl text-white leading-relaxed mb-8">
               {service.longDescription}
             </p>
-            
-            {/* Share buttons */}
-            <div className="flex justify-center mb-8">
-              <ShareButtons
-                url={`https://yellowpowerinternational.com/services/${service.id}`}
-                title={service.name}
-                description={service.longDescription}
-                variant="compact"
-                className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg"
-              />
-            </div>
             
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" className="bg-gold hover:bg-gold-600 text-navy font-semibold" asChild>

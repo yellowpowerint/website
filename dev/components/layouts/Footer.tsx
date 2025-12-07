@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { SocialLinks } from "@/components/shared/SocialLinks";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { FOOTER_NAV } from "@/lib/constants/navigation";
+import { Facebook, Instagram, Linkedin, Youtube, Twitter, MessageCircle } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,6 +37,28 @@ export function Footer() {
                   {COMPANY_INFO.email}
                 </a>
               </p>
+            </div>
+            
+            {/* Social Media Icons */}
+            <div className="flex gap-3 mt-6">
+              <a href="https://facebook.com/yellowpowerinternational" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold transition-colors" aria-label="Facebook">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="https://instagram.com/yellowpowerinternational" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold transition-colors" aria-label="Instagram">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="https://linkedin.com/company/yellow-power-international" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold transition-colors" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://youtube.com/@yellowpowerinternational" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold transition-colors" aria-label="YouTube">
+                <Youtube className="h-5 w-5" />
+              </a>
+              <a href="https://x.com/yellowpowerintl" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold transition-colors" aria-label="X (Twitter)">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="https://wa.me/233268066942" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold transition-colors" aria-label="WhatsApp">
+                <MessageCircle className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
