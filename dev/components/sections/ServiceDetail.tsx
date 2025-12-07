@@ -36,7 +36,7 @@ export function ServiceDetail({ service, children }: ServiceDetailProps) {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-navy" asChild>
+              <Button size="lg" variant="outline" className="bg-white border-white text-navy hover:bg-white/90" asChild>
                 <Link href="/services">
                   View All Services
                 </Link>
