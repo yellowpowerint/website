@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,8 +22,16 @@ interface HeaderProps {
 }
 
 export function Header({ onMobileMenuToggle }: HeaderProps) {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
+  const headerClassName = cn(
+    "fixed top-10 z-50 w-full border-b border-white/10 backdrop-blur-md text-white shadow-lg",
+    isHomePage ? "bg-transparent" : "bg-[#003087]"
+  );
+
   return (
-    <header className="fixed top-10 z-50 w-full border-b border-white/10 backdrop-blur-md text-white shadow-lg bg-transparent">
+    <header className={headerClassName}>
       <div className="container flex h-14 sm:h-16 items-center gap-2 px-2 sm:px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center mr-2 sm:mr-4 flex-shrink-0">
