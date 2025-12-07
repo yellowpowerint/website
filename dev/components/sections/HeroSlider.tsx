@@ -133,12 +133,12 @@ export function HeroSlider() {
                 <div>
                   <Button
                     size="lg"
-                    className="bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-5 text-base md:text-lg shadow-2xl"
+                    className="bg-gold-500 hover:bg-gold-600 text-black font-semibold px-6 py-5 text-base md:text-lg shadow-2xl"
                     asChild
                   >
                     <Link href={slide.ctaLink}>
                       {slide.ctaText}
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-5 w-5 text-black" />
                     </Link>
                   </Button>
                 </div>

@@ -223,6 +223,7 @@ export const FOOTER_NAV = {
     { title: "Case Studies", href: "/case-studies" },
     { title: "News", href: "/news" },
     { title: "Press Releases", href: "/news/press-releases" },
+    { title: "Publications", href: "/publications" },
     { title: "Media Kit", href: "/media" },
     { title: "Sustainability", href: "/sustainability" },
     { title: "Partners & Clients", href: "/clients" },

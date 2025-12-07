@@ -89,7 +89,7 @@ export default function PublicationsPage() {
                 key={category}
                 variant={category === "All" ? "default" : "outline"}
                 size="sm"
-                className={category === "All" ? "bg-gold-500 hover:bg-gold-600" : ""}
+                className={category === "All" ? "bg-gold-500 hover:bg-gold-600 text-black" : ""}
               >
                 {category}
               </Button>
@@ -109,8 +109,8 @@ export default function PublicationsPage() {
                       {publication.category}
                     </span>
                   </div>
-                  <CardTitle className="text-lg">{publication.title}</CardTitle>
-                  <CardDescription className="line-clamp-3">
+                  <CardTitle className="text-lg text-gray-900">{publication.title}</CardTitle>
+                  <CardDescription className="line-clamp-3 text-gray-700">
                     {publication.description}
                   </CardDescription>
                 </CardHeader>
@@ -123,12 +123,12 @@ export default function PublicationsPage() {
                     <span>{publication.pages} pages</span>
                   </div>
                   <Button 
-                    className="w-full bg-gold-500 hover:bg-gold-600" 
+                    className="w-full bg-gold-500 hover:bg-gold-600 text-black" 
                     asChild
                   >
-                    <a href={publication.downloadUrl} download>
-                      <Download className="h-4 w-4 mr-2" />
-                      Download PDF
+                    <a href={publication.downloadUrl} download className="flex items-center justify-center">
+                      <Download className="h-4 w-4 mr-2 text-black" />
+                      <span className="text-black">Download PDF</span>
                     </a>
                   </Button>
                 </CardContent>
@@ -151,10 +151,10 @@ export default function PublicationsPage() {
             </p>
             <Button 
               size="lg" 
-              className="bg-gold-500 hover:bg-gold-600"
+              className="bg-gold-500 hover:bg-gold-600 text-black"
               asChild
             >
-              <a href="/contact?subject=Newsletter">Subscribe to Newsletter</a>
+              <a href="/contact?subject=Newsletter" className="text-black">Subscribe to Newsletter</a>
             </Button>
           </div>
         </div>
