@@ -14,7 +14,6 @@ interface Slide {
   subHeadline: string;
   ctaText: string;
   ctaLink: string;
-  textPosition?: "left" | "center" | "right";
 }
 
 const SLIDES: Slide[] = [
@@ -25,7 +24,6 @@ const SLIDES: Slide[] = [
     subHeadline: "Comprehensive drilling and mining support services across West Africa since 2017",
     ctaText: "Explore Our Services",
     ctaLink: "/services",
-    textPosition: "center",
   },
   {
     id: 2,
@@ -34,7 +32,6 @@ const SLIDES: Slide[] = [
     subHeadline: "Advanced drilling technology and experienced teams delivering excellence in every project",
     ctaText: "View Our Projects",
     ctaLink: "/projects",
-    textPosition: "left",
   },
   {
     id: 3,
@@ -43,7 +40,6 @@ const SLIDES: Slide[] = [
     subHeadline: "Zero harm philosophy with ISO-certified operations and world-class safety standards",
     ctaText: "Our Commitment",
     ctaLink: "/sustainability/safety",
-    textPosition: "center",
   },
   {
     id: 4,
@@ -52,7 +48,6 @@ const SLIDES: Slide[] = [
     subHeadline: "Empowering local communities through responsible mining practices and social development",
     ctaText: "Learn More",
     ctaLink: "/sustainability",
-    textPosition: "right",
   },
 ];
 
@@ -95,17 +90,6 @@ export function HeroSlider() {
     action();
   };
 
-  const getTextAlignmentClass = (position?: string) => {
-    switch (position) {
-      case "left":
-        return "items-start text-left";
-      case "right":
-        return "items-end text-right";
-      default:
-        return "items-center text-center";
-    }
-  };
-
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Slides */}
@@ -127,17 +111,17 @@ export function HeroSlider() {
               className="object-cover"
               sizes="100vw"
             />
-            {/* Dark Overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+            {/* Dark Overlay for better text readability - stronger at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
           </div>
 
-          {/* Text Content */}
-          <div className="relative z-20 h-full flex items-center">
+          {/* Text Content - Bottom Left */}
+          <div className="relative z-20 h-full flex items-end pb-20 md:pb-24 lg:pb-28">
             <div className="container">
-              <div className={cn("flex flex-col max-w-4xl mx-auto", getTextAlignmentClass(slide.textPosition))}>
+              <div className="flex flex-col max-w-2xl">
                 {/* Headline */}
                 <h1 
-                  className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white drop-shadow-lg"
                   style={{
                     textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)'
                   }}
@@ -147,7 +131,7 @@ export function HeroSlider() {
 
                 {/* Sub-headline */}
                 <p 
-                  className="text-lg md:text-xl lg:text-2xl mb-8 text-white/95 font-medium drop-shadow-md"
+                  className="text-base md:text-lg lg:text-xl mb-6 text-white/95 font-medium drop-shadow-md"
                   style={{
                     textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.5)'
                   }}
@@ -159,7 +143,7 @@ export function HeroSlider() {
                 <div>
                   <Button
                     size="lg"
-                    className="bg-gold-500 hover:bg-gold-600 text-white font-semibold px-8 py-6 text-lg shadow-2xl"
+                    className="bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-5 text-base md:text-lg shadow-2xl"
                     asChild
                   >
                     <Link href={slide.ctaLink}>
