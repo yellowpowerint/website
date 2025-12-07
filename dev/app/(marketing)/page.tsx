@@ -5,13 +5,14 @@ import { TripleFeatureCards } from "@/components/sections/TripleFeatureCards";
 import { CEOMessage } from "@/components/sections/CEOMessage";
 import { InfoCards } from "@/components/sections/InfoCards";
 import { LatestNews } from "@/components/sections/LatestNews";
-import { ServicesOverview } from "@/components/sections/ServicesOverview";
-import { StatsSection } from "@/components/sections/StatsSection";
-import { EquipmentShowcase } from "@/components/sections/EquipmentShowcase";
-import { ClientsSection } from "@/components/sections/ClientsSection";
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+// Temporarily hidden sections - uncomment imports when sections are re-enabled
+// import { ServicesOverview } from "@/components/sections/ServicesOverview";
+// import { StatsSection } from "@/components/sections/StatsSection";
+// import { EquipmentShowcase } from "@/components/sections/EquipmentShowcase";
+// import { ClientsSection } from "@/components/sections/ClientsSection";
+// import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { NewsletterSignup } from "@/components/sections/NewsletterSignup";
-import { CareersCTA } from "@/components/sections/CareersCTA";
+// import { CareersCTA } from "@/components/sections/CareersCTA";
 import { NEWS_ARTICLES } from "@/lib/constants/news";
 import { buildMetadata } from "@/lib/seo/config";
 
