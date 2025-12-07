@@ -63,7 +63,7 @@ export function StatCounter({
         {displayValue}
         {suffix}
       </div>
-      <div className="text-sm md:text-base text-gray-600 font-medium">
+      <div className="text-sm md:text-base text-white font-medium">
         {label}
       </div>
     </div>

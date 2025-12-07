@@ -1,7 +1,21 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 export function StatsSection() {
+  const [projectsCompleted, setProjectsCompleted] = useState(100);
+
+  useEffect(() => {
+    // Increment by 5 every minute (60000 milliseconds)
+    const interval = setInterval(() => {
+      setProjectsCompleted((prev) => prev + 5);
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-16 md:py-20 bg-navy text-white">
       <div className="container">
@@ -19,7 +33,7 @@ export function StatsSection() {
             label="African Countries"
           />
           <StatCounter
-            value="100+"
+            value={projectsCompleted}
             label="Projects Completed"
             suffix="+"
           />
