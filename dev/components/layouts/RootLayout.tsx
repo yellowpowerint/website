@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { TopBar } from "./TopBar";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { MobileNav } from "./MobileNav";
@@ -14,6 +15,7 @@ export function RootLayoutWrapper({ children }: RootLayoutProps) {
 
   return (
     <>
+      <TopBar />
       <Header onMobileMenuToggle={() => setMobileNavOpen(true)} />
       <MobileNav open={mobileNavOpen} onOpenChange={setMobileNavOpen} />
       <main className="min-h-screen">{children}</main>

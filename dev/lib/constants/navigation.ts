@@ -11,11 +11,7 @@ export interface NavItem {
 
 export const MAIN_NAV: NavItem[] = [
   {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "About Us",
+    title: "WHO WE ARE",
     href: "/about",
     children: [
       {
@@ -41,7 +37,7 @@ export const MAIN_NAV: NavItem[] = [
     ],
   },
   {
-    title: "Services",
+    title: "SERVICES",
     href: "/services",
     children: [
       {
@@ -72,7 +68,7 @@ export const MAIN_NAV: NavItem[] = [
     ],
   },
   {
-    title: "Projects",
+    title: "PROJECTS",
     href: "/projects",
     children: [
       {
@@ -88,7 +84,7 @@ export const MAIN_NAV: NavItem[] = [
     ],
   },
   {
-    title: "Sustainability & CSR",
+    title: "SUSTAINABILITY",
     href: "/sustainability",
     children: [
       {
@@ -124,28 +120,7 @@ export const MAIN_NAV: NavItem[] = [
     ],
   },
   {
-    title: "Partners & Clients",
-    href: "/clients",
-    children: [
-      {
-        title: "Our Clients",
-        href: "/clients",
-        description: "Meet our valued clients and partners",
-      },
-      {
-        title: "Partnership Opportunities",
-        href: "/partnerships",
-        description: "Explore partnership possibilities",
-      },
-      {
-        title: "Supplier Portal",
-        href: "/suppliers",
-        description: "Register as an approved supplier",
-      },
-    ],
-  },
-  {
-    title: "Careers",
+    title: "CAREERS",
     href: "/careers",
     children: [
       {
@@ -176,7 +151,7 @@ export const MAIN_NAV: NavItem[] = [
     ],
   },
   {
-    title: "News & Media",
+    title: "NEWS",
     href: "/news",
     children: [
       {
@@ -207,18 +182,23 @@ export const MAIN_NAV: NavItem[] = [
     ],
   },
   {
-    title: "Contact",
-    href: "/contact",
+    title: "PARTNERS",
+    href: "/clients",
     children: [
       {
-        title: "Contact Us",
-        href: "/contact",
-        description: "Get in touch with our team",
+        title: "Our Clients",
+        href: "/clients",
+        description: "Meet our valued clients and partners",
       },
       {
-        title: "Office Locations",
-        href: "/contact/locations",
-        description: "Find our offices across Africa",
+        title: "Partnership Opportunities",
+        href: "/partnerships",
+        description: "Explore partnership possibilities",
+      },
+      {
+        title: "Supplier Portal",
+        href: "/suppliers",
+        description: "Register as an approved supplier",
       },
     ],
   },

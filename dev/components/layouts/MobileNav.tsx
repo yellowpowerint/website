@@ -43,9 +43,9 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
 
           <Separator />
 
-          <Button className="w-full" asChild>
+          <Button className="w-full font-semibold" asChild>
             <Link href="/contact" onClick={() => onOpenChange(false)}>
-              Get Quote
+              GET QUOTE
             </Link>
           </Button>
         </div>
@@ -88,7 +88,7 @@ function MobileNavItem({ item, onOpenChange }: MobileNavItemProps) {
       <div className="flex flex-col space-y-2">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-between py-2 text-left font-medium hover:text-gold transition-colors"
+          className="flex items-center justify-between py-2 text-left font-semibold hover:text-gold transition-colors"
         >
           {item.title}
           <span className="text-xs">{isOpen ? "−" : "+"}</span>
@@ -115,7 +115,7 @@ function MobileNavItem({ item, onOpenChange }: MobileNavItemProps) {
     <Link
       href={item.href}
       onClick={() => onOpenChange(false)}
-      className="py-2 font-medium hover:text-gold transition-colors"
+      className="py-2 font-semibold hover:text-gold transition-colors"
     >
       {item.title}
     </Link>
