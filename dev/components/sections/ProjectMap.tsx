@@ -31,18 +31,30 @@ export function ProjectMap({ projects }: ProjectMapProps) {
         // Dynamically import Leaflet
         const L = (await import("leaflet")).default;
 
-        // Import Leaflet CSS
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-        document.head.appendChild(link);
+        // Check if CSS is already loaded
+        const existingLink = document.querySelector('link[href*="leaflet.css"]');
+        if (!existingLink) {
+          // Import Leaflet CSS
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+          document.head.appendChild(link);
 
-        // Wait for CSS to load
-        await new Promise(resolve => setTimeout(resolve, 100));
+          // Wait for CSS to load properly
+          await new Promise(resolve => {
+            link.onload = () => resolve(true);
+            setTimeout(resolve, 500); // Fallback timeout
+          });
+        }
 
         // Initialize map centered on West Africa
         if (!mapContainer.current) return;
         const map = L.map(mapContainer.current).setView([10.0, -2.0], 5);
+
+        // Force map to invalidate size after creation
+        setTimeout(() => {
+          map.invalidateSize();
+        }, 100);
 
         // Add OpenStreetMap tiles
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -132,11 +144,11 @@ export function ProjectMap({ projects }: ProjectMapProps) {
   }
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div
         ref={mapContainer}
-        className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg"
-        style={{ minHeight: "500px" }}
+        className="w-full rounded-2xl overflow-hidden shadow-lg"
+        style={{ height: "500px", minHeight: "500px", width: "100%" }}
       />
       {!mapLoaded && (
         <div className="absolute inset-0 bg-gray-100 rounded-2xl flex items-center justify-center">
