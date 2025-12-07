@@ -24,7 +24,7 @@ interface Source {
   type: string;
 }
 
-const WELCOME_MESSAGE = `Hi! I'm PowerBot, your AI assistant for Yellow Power International. I can help you with:
+const WELCOME_MESSAGE = `Hi! I'm PowerBot, your assistant for Yellow Power International. I can help you with:
 
 • Information about our drilling and mining services
 • Career opportunities and job applications
@@ -167,7 +167,7 @@ export function PowerBot() {
             </div>
             <div>
               <CardTitle className="text-lg font-semibold">PowerBot</CardTitle>
-              <p className="text-xs text-gray-300">AI Assistant</p>
+              <p className="text-xs text-gray-300">Virtual Assistant</p>
             </div>
           </div>
           <Button

@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Search, TrendingUp, FileText } from "lucide-react";
+import { Search, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -61,7 +61,7 @@ export function TopBar() {
   const isPositive = currentCommodity.change >= 0;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 bg-gray-900/95 backdrop-blur-sm text-white shadow-md">
+    <div className="fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 backdrop-blur-sm text-white shadow-md" style={{ backgroundColor: '#003087' }}>
       <div className="container flex h-10 items-center justify-between px-2 sm:px-4">
         {/* Left: Commodity Ticker */}
         <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
@@ -82,17 +82,16 @@ export function TopBar() {
           </div>
         </div>
 
-        {/* Right: Publications & Search */}
+        {/* Right: Contact Us & Search */}
         <div className="flex items-center gap-2 sm:gap-3">
           <Link 
-            href="/publications" 
-            className="text-white hover:text-gold-400 transition-colors"
-            aria-label="Publications"
-            title="Publications"
+            href="/contact" 
+            className="text-white hover:text-gold-400 transition-colors text-sm font-medium"
+            aria-label="Contact Us"
           >
-            <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
+            Contact Us
           </Link>
-          <span className="text-gray-500 hidden sm:inline">|</span>
+          <span className="text-gray-500">|</span>
           <Button
             variant="ghost"
             size="icon"
