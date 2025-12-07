@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSlider } from "@/components/sections/HeroSlider";
+import { OverlapCards } from "@/components/sections/OverlapCards";
 import { ServicesOverview } from "@/components/sections/ServicesOverview";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { EquipmentShowcase } from "@/components/sections/EquipmentShowcase";
@@ -25,6 +26,7 @@ export default function HomePage() {
   return (
     <main>
       <HeroSlider />
+      <OverlapCards />
       <ServicesOverview />
       <StatsSection />
       <EquipmentShowcase />
