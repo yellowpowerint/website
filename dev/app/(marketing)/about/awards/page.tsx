@@ -64,7 +64,7 @@ export default function AwardsPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-navy via-navy-600 to-navy-700 text-white py-20">
+      <section className="text-white py-20" style={{ backgroundColor: '#003087' }}>
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
             Awards & Recognition

@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageSquare, Facebook, Instagram, Linkedin, Youtube, Twitter, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
-import { SocialLinks } from '@/components/shared/SocialLinks';
 import { DEPARTMENT_CONTACTS, EMERGENCY_CONTACT } from '@/lib/constants/offices';
 
 export const metadata: Metadata = {
@@ -187,7 +186,62 @@ export default function ContactPage() {
           <h3 className="text-xl font-bold text-gray-900 mb-4">
             Follow Us on Social Media
           </h3>
-          <SocialLinks variant="default" size="md" showLabels className="justify-center" />
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://facebook.com/yellowpowerinternational"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gold-600 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href="https://instagram.com/yellowpowerinternational"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gold-600 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://linkedin.com/company/yellow-power-international"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gold-600 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://youtube.com/@yellowpowerinternational"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gold-600 transition-colors"
+              aria-label="YouTube"
+            >
+              <Youtube className="h-5 w-5" />
+            </a>
+            <a
+              href="https://x.com/yellowpowerintl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gold-600 transition-colors"
+              aria-label="X (Twitter)"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a
+              href="https://wa.me/233268066942"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gold-600 transition-colors"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </div>

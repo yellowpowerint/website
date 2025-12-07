@@ -75,7 +75,11 @@ export default function SustainabilityPage() {
               <Button size="lg" className="bg-white text-teal-700 hover:bg-gray-100" asChild>
                 <Link href="/sustainability/csr">View Our CSR Programs</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <Button
+                size="lg"
+                className="bg-white text-navy border-white hover:bg-white hover:text-navy"
+                asChild
+              >
                 <Link href="/sustainability/safety">Safety Dashboard</Link>
               </Button>
             </div>

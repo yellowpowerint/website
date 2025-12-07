@@ -44,6 +44,36 @@ function getProjectCoordinates(location: string, country: string): { lat: number
   return countryDefaults[country] || { lat: 7.9465, lng: -1.0232 };
 }
 
+const COUNTRY_PROJECTS = [
+  {
+    id: "ghana",
+    name: "Ghana Operations",
+    location: "Ghana",
+    services: ["Drilling", "Load & Haul", "Construction"],
+    status: "Active",
+    coordinates: getProjectCoordinates("Ghana", "Ghana"),
+    year: "2017",
+  },
+  {
+    id: "mali",
+    name: "Mali Operations",
+    location: "Mali",
+    services: ["Drilling", "Load & Haul"],
+    status: "Active",
+    coordinates: getProjectCoordinates("Mali", "Mali"),
+    year: "2020",
+  },
+  {
+    id: "burkina-faso",
+    name: "Burkina Faso Operations",
+    location: "Burkina Faso",
+    services: ["Drilling", "Construction"],
+    status: "Active",
+    coordinates: getProjectCoordinates("Burkina Faso", "Burkina Faso"),
+    year: "2019",
+  },
+];
+
 export default function ProjectsPage() {
   const [filters, setFilters] = useState<FilterValues>({
     service: "",
@@ -132,23 +162,16 @@ export default function ProjectsPage() {
           <div className="text-center mb-12">
             <MapPin className="h-12 w-12 mx-auto mb-4 text-gold-500" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Project Locations
+              Regional Presence
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our project portfolio across West Africa. Click on markers to view project details.
+              Our operations span three key mining regions across West Africa: Ghana, Mali, and Burkina Faso.
             </p>
           </div>
           <ProjectMap 
-            projects={PROJECTS.map(p => ({
-              id: p.slug,
-              name: p.title,
-              location: p.location + ', ' + p.country,
-              services: p.services,
-              status: p.status.charAt(0).toUpperCase() + p.status.slice(1),
-              coordinates: getProjectCoordinates(p.location, p.country),
-              year: p.startDate.split('-')[0],
-            }))}
+            projects={COUNTRY_PROJECTS}
             height="600px"
+            zoom={4}
           />
         </div>
       </section>
