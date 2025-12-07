@@ -158,8 +158,8 @@ export function PowerBot() {
   }
 
   return (
-    <Card className="fixed bottom-6 right-6 z-50 w-[380px] h-[600px] shadow-2xl flex flex-col">
-      <CardHeader className="bg-gradient-to-r from-navy to-navy-600 text-white rounded-t-lg flex-shrink-0">
+    <Card className="fixed bottom-6 right-6 z-50 w-[380px] h-[500px] shadow-2xl flex flex-col">
+      <CardHeader className="text-white rounded-t-lg flex-shrink-0" style={{ backgroundColor: '#003087' }}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="h-10 w-10 rounded-full bg-gold flex items-center justify-center">
