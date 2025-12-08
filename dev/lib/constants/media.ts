@@ -294,6 +294,15 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     duration: '3:30',
     publishedAt: '2024-06-20',
   },
+  {
+    id: 'vid-009',
+    title: 'Wassa Akyempim Golden Star Site Visit',
+    thumbnail: 'https://img.youtube.com/vi/M04AiirkLpY/hqdefault.jpg',
+    videoUrl: 'https://www.youtube.com/embed/M04AiirkLpY',
+    description: 'On-the-ground footage from a site visit at Wassa Akyempim, highlighting safety practices, field supervision, and coordination between YPI crews and client teams.',
+    category: 'Project Showcase',
+    publishedAt: '2024-01-01',
+  },
 ];
 
 // Media categories
