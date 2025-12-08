@@ -24,6 +24,164 @@ export interface PressRelease {
 // Sample news articles
 export const NEWS_ARTICLES: NewsArticle[] = [
   {
+    slug: 'wassa-akyempim-golden-star-project-day-6',
+    title: 'Wassa Akyempim Golden Star Project Day 6',
+    excerpt:
+      'Advanced trench drainage construction with continuous geotextile installation and strict quality control at the Wassa Akyempim Golden Star Project.',
+    content: `
+      <p>Yellow Power International's systematic approach to trench drainage construction reaches an advanced stage during day six of the Wassa Akyempim Golden Star Project, where meticulous geotextile installation and quality control procedures ensure long-term infrastructure performance. This phase demonstrates the company's commitment to engineering excellence through careful execution of critical underground drainage systems.</p>
+      
+      <p>The project team navigates the challenging terrain with precision, installing continuous geotextile fabric along deep trenches that will form the backbone of the site's water management network. Yellow Power International's construction supervisors work closely with field personnel to ensure proper fabric overlap, tension control, and anchoring techniques that prevent material displacement during subsequent backfilling operations. This attention to installation details directly impacts the drainage system's effectiveness over its operational lifespan.</p>
+      
+      <p>CAT excavators positioned strategically throughout the site support the drainage installation work, demonstrating Yellow Power International's capacity to coordinate multiple construction zones simultaneously without compromising safety or quality standards. The scale of operations visible across the expansive mining landscape illustrates the company's ability to manage large-scale civil engineering projects that require substantial resource mobilization and logistical planning.</p>
+      
+      <p>Safety remains paramount, with all personnel equipped with complete personal protective equipment including hard hats, high-visibility vests, and safety boots appropriate for the excavation environment. Yellow Power International's integrated approach to project delivery—combining equipment resources, technical expertise, and experienced personnel—positions them as a reliable partner for clients requiring comprehensive civil works solutions in Ghana's competitive mining sector.</p>
+    `,
+    category: 'Projects',
+    tags: ['Wassa Akyempim', 'Golden Star', 'Drainage', 'Geotextile', 'Projects'],
+    publishedAt: '2025-12-08',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/wassa-akyempim-golden-star-project-day-6.jpg',
+  },
+  {
+    slug: 'wassa-akyempim-golden-star-project-day-5',
+    title: 'Wassa Akyempim Golden Star Project Day 5',
+    excerpt:
+      'Critical slope stabilization and erosion control works using geotextile fabrics and aggregate backfill at the Wassa Akyempim Golden Star Project.',
+    content: `
+      <p>Yellow Power International demonstrates advanced erosion control and geotechnical engineering capabilities during the fifth phase of the Wassa Akyempim Golden Star Project, focusing on critical slope stabilization and drainage infrastructure. This operation highlights the company's understanding of sustainable construction practices that protect engineered structures from Ghana's tropical weather conditions and seasonal rainfall.</p>
+      
+      <p>The installation of geotextile fabric combined with aggregate backfill represents sophisticated soil engineering techniques that prevent erosion while maintaining site functionality. Yellow Power International's CAT backhoe loader precisely places crushed stone materials over the geotextile layer, creating a composite system that distributes loads effectively while allowing controlled water infiltration. This methodology is essential for long-term infrastructure stability in mining environments where heavy equipment traffic and intense rainfall can compromise unprepared surfaces.</p>
+      
+      <p>A safety supervisor in high-visibility reflective clothing monitors the operation, ensuring compliance with Yellow Power International's strict safety protocols and quality standards. The dramatic backdrop of engineered slopes showcases the scale of earthworks already completed, with visible horizontal benching patterns that control surface water runoff and minimize erosion potential on steep grades.</p>
+      
+      <p>The integration of erosion control measures during active construction phases rather than as afterthoughts demonstrates Yellow Power International's proactive project management approach. This forward-thinking methodology reduces long-term maintenance costs for clients while ensuring environmental compliance throughout the project lifecycle. The company's expertise in combining multiple civil engineering disciplines—earthworks, drainage, geotechnical engineering, and erosion control—establishes them as a comprehensive solution provider for Ghana's complex mining infrastructure projects.</p>
+    `,
+    category: 'Projects',
+    tags: ['Wassa Akyempim', 'Golden Star', 'Erosion Control', 'Geotechnical', 'Drainage'],
+    publishedAt: '2025-12-07',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/wassa-akyempim-golden-star-project-day-5.jpg',
+  },
+  {
+    slug: 'wassa-akyempim-golden-star-project-day-4',
+    title: 'Wassa Akyempim Golden Star Project Day 4',
+    excerpt:
+      'Precision concrete foundation construction for permanent mining infrastructure at the Wassa Akyempim Golden Star Project.',
+    content: `
+      <p>Yellow Power International's concrete construction expertise takes center stage during the fourth phase of the Wassa Akyempim Golden Star Project, where precision foundation work forms the structural basis for permanent mining infrastructure. This operation demonstrates the company's capability in delivering high-quality concrete works that meet stringent engineering specifications required for industrial mining facilities.</p>
+      
+      <p>The foundation construction process involves meticulous excavation, formwork installation, and concrete placement executed by Yellow Power International's experienced construction team. Workers equipped with appropriate safety gear including hard hats and high-visibility vests collaborate efficiently to ensure proper concrete consolidation and finishing. The freshly placed concrete visible in the foundation pit represents critical structural elements that will support heavy equipment or processing facilities.</p>
+      
+      <p>Quality control measures are evident throughout the operation, with supervisory staff monitoring concrete placement procedures to ensure compliance with mix design specifications and placement techniques. The wooden formwork systems installed around the perimeter demonstrate traditional craftsmanship combined with modern engineering principles, creating accurate dimensional control for the foundation elements.</p>
+      
+      <p>Yellow Power International's approach to concrete construction emphasizes teamwork and attention to detail, with multiple trades coordinating their activities to maintain project schedules while ensuring structural integrity. The company's ability to manage complex concrete operations in remote mining locations showcases their comprehensive service offering that extends beyond earthworks to include specialized civil engineering construction. This integrated capability allows clients to rely on a single contractor for multiple project phases, streamlining coordination and ensuring consistent quality standards throughout the Wassa Akyempim Golden Star Project.</p>
+    `,
+    category: 'Projects',
+    tags: ['Wassa Akyempim', 'Golden Star', 'Concrete', 'Foundations', 'Construction'],
+    publishedAt: '2025-12-06',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/wassa-akyempim-golden-star-project-day-4.jpg',
+  },
+  {
+    slug: 'wassa-akyempim-golden-star-project-day-3',
+    title: 'Wassa Akyempim Golden Star Project Day 3',
+    excerpt:
+      'Large-scale earthworks and engineered slopes transforming the Wassa Akyempim site into functional mining infrastructure.',
+    content: `
+      <p>Yellow Power International showcases its large-scale earthmoving capabilities during the third phase of operations at the Wassa Akyempim Golden Star Project, where extensive site grading and mass earthworks transform the natural landscape into functional mining infrastructure. This ambitious undertaking demonstrates the company's capacity to manage complex terrain modification projects that span multiple hectares of challenging topography.</p>
+      
+      <p>The aerial perspective reveals the magnitude of Yellow Power International's operations, with multiple heavy equipment units working in coordinated sequences across the expansive site. The distinctive red laterite soil, characteristic of Ghana's mineral-rich regions, has been systematically excavated, graded, and compacted to create level platforms and engineered slopes essential for mining operations. The company's fleet of yellow compaction equipment maintains precise grade control across the vast working area.</p>
+      
+      <p>Strategic placement of geotextile-reinforced drainage systems is visible as serpentine channels cutting through the prepared surfaces, demonstrating Yellow Power International's integrated approach to site development. These drainage features ensure that water management infrastructure is incorporated during construction rather than retrofitted later, reflecting professional engineering practices that enhance long-term site stability.</p>
+      
+      <p>The engineered slopes visible in the background showcase careful attention to geotechnical stability, with controlled gradient angles that prevent erosion while maximizing usable flat areas. Yellow Power International's project management expertise coordinates multiple operations simultaneously, maintaining productivity while adhering to safety protocols and quality standards. This comprehensive approach to mass earthworks positions the company as a capable partner for large-scale mining infrastructure development throughout Ghana.</p>
+    `,
+    category: 'Projects',
+    tags: ['Wassa Akyempim', 'Golden Star', 'Earthworks', 'Site Development', 'Infrastructure'],
+    publishedAt: '2025-12-05',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/wassa-akyempim-golden-star-project-day-3.jpg',
+  },
+  {
+    slug: 'wassa-akyempim-golden-star-project-day-2',
+    title: 'Wassa Akyempim Golden Star Project Day 2',
+    excerpt:
+      'Engineered drainage channel construction using high-strength geotextile systems at the Wassa Akyempim Golden Star Project.',
+    content: `
+      <p>Yellow Power International's continued operations at the Wassa Akyempim Golden Star Project demonstrate their expertise in specialized drainage and water management systems essential for mining infrastructure. This phase of the project focuses on the installation of engineered drainage channels utilizing advanced geotextile technology and precision excavation techniques to ensure effective water control across the mining site.</p>
+      
+      <p>The drainage construction involves the strategic placement of high-strength geotextile fabric along excavated channels, which serves multiple critical functions including soil separation, filtration, and reinforcement. Yellow Power International's experienced civil engineering team carefully positions the geotextile material to prevent soil migration while allowing controlled water flow, a crucial requirement in Ghana's tropical climate where heavy rainfall can impact mining operations.</p>
+      
+      <p>Working with CAT excavators and supporting equipment, the company executes precise trenching operations that follow engineered drainage plans designed to channel surface water away from critical infrastructure areas. The backfilling process incorporates selected granular materials that work in conjunction with the geotextile system to create robust, long-lasting drainage solutions capable of handling high water volumes during the rainy season.</p>
+      
+      <p>Yellow Power International's attention to detail is evident in the careful handling and placement of materials, with supervisory personnel ensuring compliance with technical specifications throughout the installation process. This systematic approach to drainage construction reflects the company's understanding that effective water management is fundamental to maintaining operational efficiency and structural integrity in mining environments, ultimately contributing to the long-term success of the Wassa Akyempim Golden Star Project.</p>
+    `,
+    category: 'Projects',
+    tags: ['Wassa Akyempim', 'Golden Star', 'Drainage', 'Geotextile', 'Water Management'],
+    publishedAt: '2025-12-04',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/wassa-akyempim-golden-star-project-day-2.jpg',
+  },
+  {
+    slug: 'sunny-adt-fleet-expansion',
+    title: 'Sunny ADT',
+    excerpt:
+      'Strategic deployment of SANY SAT40C articulated dump trucks to enhance Yellow Power International’s material hauling operations across Ghana.',
+    content: `
+      <p>Yellow Power International has significantly enhanced its fleet capabilities with the acquisition and deployment of SANY SAT40C articulated dump trucks (ADT), representing a major advancement in their material hauling operations across Ghana. This strategic investment demonstrates the company's commitment to utilizing world-class equipment that combines productivity, durability, and operational efficiency in challenging terrain conditions.</p>
+      
+      <p>The SANY SAT40C articulated dump truck features a robust 40-ton payload capacity, making it ideal for large-scale earthmoving projects in Ghana's mining and infrastructure sectors. The distinctive six-wheel configuration provides exceptional traction and stability on uneven surfaces, while the articulated steering system allows for superior maneuverability in confined spaces and rough terrain conditions commonly encountered on construction sites.</p>
+      
+      <p>Yellow Power International's operators benefit from the SAT40C's advanced ergonomic cabin design, which includes intuitive controls, enhanced visibility, and climate control systems that ensure operator comfort during extended work shifts. The truck's powerful engine delivers reliable performance while meeting modern emission standards, reflecting the company's environmental consciousness.</p>
+      
+      <p>The heavy-duty suspension system and reinforced chassis design enable the SAT40C to withstand the rigorous demands of continuous operation in Ghana's mining environments. Yellow Power International maintains these specialized vehicles to the highest standards, ensuring maximum uptime and productivity. The deployment of SANY equipment showcases the company's partnership with leading global manufacturers to deliver efficient material transport solutions that meet the demanding requirements of modern construction and mining operations in Ghana.</p>
+    `,
+    category: 'Equipment',
+    tags: ['SANY', 'ADT', 'Haulage', 'Fleet Expansion', 'Equipment'],
+    publishedAt: '2025-12-03',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/sunny-adt-fleet-expansion.jpg',
+  },
+  {
+    slug: 'benso-project-drilling',
+    title: 'Benso Project Drilling',
+    excerpt:
+      'Specialized geotechnical drilling operations at the Benso Project using a MULTISTAR rig to support exploration and ground investigation.',
+    content: `
+      <p>Yellow Power International has expanded its service portfolio in Ghana with specialized geotechnical drilling operations at the Benso Project, utilizing advanced drilling technology to support mining exploration and ground investigation requirements. The company deployed a sophisticated MULTISTAR drill rig equipped with modern hydraulic systems and precision control panels, demonstrating their capability in complex subsurface investigation work.</p>
+      
+      <p>The drilling operations feature state-of-the-art equipment capable of penetrating various geological formations encountered in Ghana's mineral-rich regions. The MULTISTAR rig's robust design allows for deep drilling applications essential for resource evaluation, geotechnical assessment, and foundation design verification. Yellow Power International's trained drilling operators manage the sophisticated control systems that regulate drilling parameters including rotation speed, hydraulic pressure, and penetration rates.</p>
+      
+      <p>Safety remains paramount throughout the drilling operations, with personnel equipped with appropriate personal protective equipment and adherence to strict operational protocols. The company's commitment to environmental responsibility is evident in their controlled drilling procedures that minimize surface disturbance while maximizing data collection efficiency.</p>
+      
+      <p>The Benso Project drilling activities support critical decision-making processes for mining development, providing essential geological data that informs resource estimation and mine planning. Yellow Power International's investment in modern drilling equipment positions them as a comprehensive service provider capable of delivering integrated solutions from initial exploration through to mine construction and operation.</p>
+    `,
+    category: 'Projects',
+    tags: ['Benso', 'Drilling', 'Geotechnical', 'Exploration', 'Projects'],
+    publishedAt: '2025-12-02',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/benso-project-drilling.jpg',
+  },
+  {
+    slug: 'wassa-akyempim-golden-star-project',
+    title: 'Wassa Akyempim Golden Star Project',
+    excerpt:
+      'Comprehensive earthworks, compaction, and mining infrastructure development for the Wassa Akyempim Golden Star Project in Ghana’s Western Region.',
+    content: `
+      <p>Yellow Power International has demonstrated exceptional expertise in delivering comprehensive earthworks and site preparation services for the Wassa Akyempim Golden Star Project in Ghana's Western Region. This mining infrastructure development showcases the company's commitment to supporting Ghana's gold mining sector through professional construction and ground engineering solutions.</p>
+      
+      <p>The project involves extensive site development work, including mass earthworks, soil compaction, and foundation preparation for critical mining infrastructure. Yellow Power International deployed state-of-the-art HAMM brand vibratory rollers and modern compaction equipment to ensure optimal soil density and stability across the project site. The precision compaction work is essential for creating stable platforms that can support heavy mining equipment and structures.</p>
+      
+      <p>The project scope extends beyond basic earthworks to include the preparation of construction pads, installation of reinforced concrete foundations, and development of internal haul roads. Yellow Power International's commitment to safety and quality is evident in the controlled work environment, where proper compaction verification procedures ensure compliance with international mining infrastructure standards. Through this project, Yellow Power International continues to establish itself as a trusted partner in Ghana's mining sector.</p>
+    `,
+    category: 'Projects',
+    tags: ['Wassa Akyempim', 'Golden Star', 'Earthworks', 'Compaction', 'Ghana'],
+    publishedAt: '2025-12-01',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/wassa-akyempim-golden-star-project.jpg',
+  },
+  {
     slug: 'ypi-completes-major-project-tarkwa',
     title: 'Yellow Power International Completes Major Production Drilling Project at Tarkwa',
     excerpt: 'Successfully completed a 6-month production drilling contract at one of Ghana\'s largest gold mines, drilling over 50,000 meters.',
