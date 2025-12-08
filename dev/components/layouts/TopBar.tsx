@@ -51,7 +51,8 @@ export function TopBar() {
         <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
           {commodities.map((commodity) => {
             const isPositive = commodity.change >= 0;
-            const formattedPrice = `$${commodity.price.toFixed(2)}`;
+            const basePrice = `$${commodity.price.toFixed(2)}`;
+            const displayedPrice = isPositive ? basePrice : `(${basePrice})`;
             const formattedChange = isPositive
               ? `+$${Math.abs(commodity.change).toFixed(2)}`
               : `($${Math.abs(commodity.change).toFixed(2)})`;
@@ -75,7 +76,7 @@ export function TopBar() {
                     !isPositive && "text-red-400"
                   )}
                 >
-                  {formattedPrice}
+                  {displayedPrice}
                 </span>
                 <span
                   className={cn(
