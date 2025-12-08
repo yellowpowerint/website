@@ -17,7 +17,7 @@ export interface OfficeLocation {
   services?: string[];
 }
 
-// Office locations across 3 African countries
+// Office locations across 4 African countries and North America
 export const OFFICE_LOCATIONS: OfficeLocation[] = [
   {
     id: 'office-gh-accra',
@@ -101,6 +101,43 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
       'Construction Services',
       'Equipment Support',
       'Regional Operations',
+    ],
+  },
+  {
+    id: 'office-ml-bamako',
+    name: 'Mali Operations Office',
+    country: 'Mali',
+    city: 'Bamako',
+    address: 'Bamako, Mali',
+    phone: '+223 20 XX XX XX',
+    email: 'mali@yellowpowerinternational.com',
+    coordinates: {
+      lat: 12.6392,
+      lng: -8.0029,
+    },
+    operatingHours: 'Monday - Friday: 8:00 AM - 5:00 PM',
+    services: [
+      'Drilling Services',
+      'Load & Haul Services',
+      'Project Support',
+    ],
+  },
+  {
+    id: 'office-ca-canada',
+    name: 'North America Office - Canada',
+    country: 'Canada',
+    city: 'Canada',
+    address: 'Canada',
+    phone: '+1 XXX XXX XXXX',
+    email: 'canada@yellowpowerinternational.com',
+    coordinates: {
+      lat: 56.1304,
+      lng: -106.3468,
+    },
+    operatingHours: 'Monday - Friday: 8:00 AM - 5:00 PM',
+    services: [
+      'Mining Support Services',
+      'Project Coordination',
     ],
   },
 ];

@@ -5,7 +5,7 @@ import { ProjectMap } from "@/components/sections/ProjectMap";
 
 export const metadata: Metadata = {
   title: "Global Presence | Yellow Power International",
-  description: `Discover Yellow Power International's operations across ${COMPANY_INFO.offices} African countries.`,
+  description: `Discover Yellow Power International's operations across ${COMPANY_INFO.offices} countries in Africa and North America.`,
 };
 
 const offices = [
@@ -27,6 +27,18 @@ const offices = [
     country: "Burkina Faso",
     coordinates: [-1.5247, 12.3714] as [number, number],
   },
+  {
+    name: "Regional Office - Côte d'Ivoire",
+    city: "Abidjan",
+    country: "Côte d'Ivoire",
+    coordinates: [-4.0267, 5.3364] as [number, number],
+  },
+  {
+    name: "North America Office - Canada",
+    city: "Canada",
+    country: "Canada",
+    coordinates: [-106.3468, 56.1304] as [number, number],
+  },
 ];
 
 export default function GlobalPresencePage() {
@@ -39,7 +51,7 @@ export default function GlobalPresencePage() {
             Global Presence
           </h1>
           <p className="text-xl text-gray-300 text-center max-w-3xl mx-auto">
-            Operating across {COMPANY_INFO.offices} African countries with a team of {COMPANY_INFO.employees} professionals
+            Operating across {COMPANY_INFO.offices} countries in Africa and North America with a team of {COMPANY_INFO.employees} professionals
           </p>
         </div>
       </section>
@@ -60,7 +72,7 @@ export default function GlobalPresencePage() {
             <div className="text-center">
               <Globe className="h-12 w-12 text-gold mx-auto mb-4" />
               <div className="text-3xl font-bold text-navy mb-2">{COMPANY_INFO.offices}</div>
-              <div className="text-gray-600">African Countries</div>
+              <div className="text-gray-600">Countries</div>
             </div>
             <div className="text-center">
               <MapPin className="h-12 w-12 text-gold mx-auto mb-4" />

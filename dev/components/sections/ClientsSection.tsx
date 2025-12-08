@@ -59,7 +59,7 @@ export function ClientsSection() {
             ))}
           </div>
           <p className="text-center text-sm text-gray-500 mt-6">
-            Trusted by leading mining operations across West Africa
+            Trusted by leading mining operations across Africa and North America
           </p>
         </div>
 

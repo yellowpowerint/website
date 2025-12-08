@@ -15,7 +15,7 @@ export default function PartnershipsPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Partnership Opportunities</h1>
             <p className="text-xl text-gray-300">
-              Join us in delivering world-class mining support services across West Africa
+              Join us in delivering world-class mining support services across Africa and North America
             </p>
           </div>
         </div>
@@ -32,7 +32,7 @@ export default function PartnershipsPage() {
                 <Handshake className="h-8 w-8 text-gold" />
               </div>
               <h3 className="text-xl font-semibold text-navy mb-2">Strong Market Position</h3>
-              <p className="text-gray-600">Established presence in 3 African countries with major mining clients</p>
+              <p className="text-gray-600">Established presence in 4 African countries and Canada with major mining clients</p>
             </div>
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">

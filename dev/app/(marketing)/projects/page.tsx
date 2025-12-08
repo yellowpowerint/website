@@ -165,7 +165,8 @@ export default function ProjectsPage() {
               Regional Presence
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Our operations span three key mining regions across West Africa: Ghana, Mali, and Burkina Faso.
+              Our operations span four key mining regions across West Africa: Ghana, Côte d&apos;Ivoire, Mali, and Burkina Faso, 
+              with additional projects and partnerships in Canada (North America).
             </p>
           </div>
 

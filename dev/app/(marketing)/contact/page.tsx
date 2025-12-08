@@ -132,7 +132,7 @@ export default function ContactPage() {
                 <MapPin className="h-8 w-8 text-gold-500 mb-2" />
                 <CardTitle>Our Locations</CardTitle>
                 <CardDescription>
-                  Offices across 3 African countries
+                  Offices across 4 African countries and 1 North American country (Canada)
                 </CardDescription>
               </CardHeader>
               <CardContent>

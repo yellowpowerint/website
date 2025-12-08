@@ -199,7 +199,7 @@ export default function MediaKitPage() {
                   <p className="text-gray-600 mb-4">
                     Founded in 2017 by Mr. Emmanuel Kweku Ganu, Yellow Power International has grown 
                     to become one of Ghana&apos;s leading mining support services providers, with operations 
-                    across 3 African countries and over 200 employees.
+                    across 5 countries (Ghana, Côte d&apos;Ivoire, Mali, Burkina Faso, Canada) and over 200 employees.
                   </p>
                   <h4 className="font-semibold mb-2">Core Services:</h4>
                   <ul className="list-disc list-inside text-gray-600 space-y-1">
@@ -232,7 +232,7 @@ export default function MediaKitPage() {
                     </div>
                     <div>
                       <dt className="text-sm text-gray-500">Operating Countries</dt>
-                      <dd className="text-gray-900 font-medium">Ghana, Burkina Faso, Côte d&apos;Ivoire</dd>
+                      <dd className="text-gray-900 font-medium">Ghana, Côte d&apos;Ivoire, Mali, Burkina Faso, Canada</dd>
                     </div>
                     <div>
                       <dt className="text-sm text-gray-500">Industry</dt>

@@ -92,8 +92,8 @@ export function ImpactMetrics({ focus = "all", showCharts = true }: ImpactMetric
                 <Leaf className="h-5 w-5 text-teal-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-navy">3</div>
-                <p className="text-xs text-gray-500 mt-1">Ghana, Mali, Burkina Faso</p>
+                <div className="text-3xl font-bold text-navy">5</div>
+                <p className="text-xs text-gray-500 mt-1">Ghana, Côte d&apos;Ivoire, Mali, Burkina Faso, Canada</p>
               </CardContent>
             </Card>
           </div>

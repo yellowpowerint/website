@@ -21,7 +21,7 @@ export const COMPANY_INFO: CompanyInfo = {
   founder: "Mr. Emmanuel Kweku Ganu",
   location: "Madina, Greater Accra, Ghana",
   employees: "501+",
-  offices: 3,
+  offices: 5,
   phone1: "+233268066942",
   phone2: "0550099130",
   website: "https://yellowpowerinternational.com/",

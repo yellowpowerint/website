@@ -76,7 +76,7 @@ export default function HistoryPage() {
           <p className="text-lg text-gray-600 leading-relaxed">
             Since our founding in {COMPANY_INFO.founded}, Yellow Power International has grown from a 
             single-location operation to a multi-country organization serving the mining industry 
-            across {COMPANY_INFO.offices} African nations. Our journey is marked by strategic investments in 
+            across {COMPANY_INFO.offices} countries in Africa and North America. Our journey is marked by strategic investments in 
             people, equipment, and technology, always guided by our commitment to safety and excellence.
           </p>
         </div>

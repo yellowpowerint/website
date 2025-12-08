@@ -34,8 +34,8 @@ export function LocationsClient() {
             </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Yellow Power International operates across 3 African countries with offices 
-            strategically located to serve major mining regions.
+            Yellow Power International operates across 4 African countries and 1 North American country (Canada), 
+            with offices strategically located to serve major mining regions.
           </p>
         </div>
 

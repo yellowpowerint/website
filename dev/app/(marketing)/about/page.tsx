@@ -37,7 +37,7 @@ const aboutLinks = [
   },
   {
     title: "Global Presence",
-    description: "Our operations across 3 African countries",
+    description: "Our operations across 5 countries in Africa and North America",
     href: "/about/global-presence",
     icon: <Globe className="h-6 w-6" />,
   },
@@ -61,7 +61,7 @@ export default function AboutPage() {
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
               Since {COMPANY_INFO.founded}, we have been committed to delivering exceptional 
-              mining support services across Africa, powered by our skilled team of {COMPANY_INFO.employees} professionals 
+              mining support services across Africa and North America, powered by our skilled team of {COMPANY_INFO.employees} professionals 
               operating in {COMPANY_INFO.offices} countries.
             </p>
           </div>

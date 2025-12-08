@@ -60,7 +60,7 @@ export default function FounderPage() {
                 </p>
                 <p>
                   Under his leadership, Yellow Power International has grown from a startup to a 
-                  leading mining support services provider with operations in {COMPANY_INFO.offices} African countries 
+                  leading mining support services provider with operations in {COMPANY_INFO.offices} countries across Africa and North America 
                   and a team of {COMPANY_INFO.employees} dedicated professionals.
                 </p>
               </div>
