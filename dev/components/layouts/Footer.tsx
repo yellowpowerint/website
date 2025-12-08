@@ -119,9 +119,7 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
-            © {currentYear}{' '}
-            <span className="font-semibold text-[#003087]">{COMPANY_INFO.name}</span>
-            {'. All rights reserved.'}
+            © {currentYear} {COMPANY_INFO.name}. All rights reserved.
           </p>
           
           {/* Legal Links */}
