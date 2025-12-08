@@ -14,24 +14,29 @@ export function VideoPageClient() {
     MEDIA_VIDEOS.slice(0, Math.min(PAGE_SIZE, MEDIA_VIDEOS.length))
   );
   const [isFetching, setIsFetching] = useState(false);
+  const [hasMore, setHasMore] = useState(MEDIA_VIDEOS.length > PAGE_SIZE);
 
   useEffect(() => {
-    if (selectedVideo) return;
+    if (selectedVideo || !hasMore) return;
 
     const handleScroll = () => {
-      if (isFetching) return;
+      if (isFetching || !hasMore) return;
 
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 400) {
         setIsFetching(true);
         // Simulate loading more videos by cycling through the existing list
         setTimeout(() => {
           setDisplayedVideos((prev) => {
-            const next: MediaVideo[] = [];
-            for (let i = 0; i < PAGE_SIZE; i++) {
-              const idx = (prev.length + i) % MEDIA_VIDEOS.length;
-              next.push(MEDIA_VIDEOS[idx]);
+            const nextStart = prev.length;
+            const nextEnd = Math.min(nextStart + PAGE_SIZE, MEDIA_VIDEOS.length);
+            const next = MEDIA_VIDEOS.slice(nextStart, nextEnd);
+            const combined = [...prev, ...next];
+
+            if (nextEnd >= MEDIA_VIDEOS.length) {
+              setHasMore(false);
             }
-            return [...prev, ...next];
+
+            return combined;
           });
           setIsFetching(false);
         }, 150);
@@ -40,7 +45,7 @@ export function VideoPageClient() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [selectedVideo, isFetching]);
+  }, [selectedVideo, isFetching, hasMore]);
 
   const handleSelectVideo = (video: MediaVideo) => {
     setSelectedVideo(video);
@@ -157,6 +162,11 @@ export function VideoPageClient() {
 
           {isFetching && (
             <div className="mt-6 text-center text-sm text-gray-400">Loading more videos...</div>
+          )}
+          {!isFetching && !hasMore && (
+            <div className="mt-6 text-center text-sm text-gray-500">
+              You have reached the end of the video list.
+            </div>
           )}
         </section>
       </div>

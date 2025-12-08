@@ -216,7 +216,7 @@ export const MEDIA_IMAGES: MediaImage[] = [
 export const MEDIA_VIDEOS: MediaVideo[] = [
   {
     id: 'vid-001',
-    title: 'Yellow Power International - Company Overview 2024',
+    title: 'Wassa Akyempim Golden Star Site Visit - Tape 4',
     thumbnail: 'https://img.youtube.com/vi/S6jOoxGpYPQ/hqdefault.jpg',
     videoUrl: 'https://www.youtube.com/embed/S6jOoxGpYPQ',
     description: 'Comprehensive overview of YPI\'s services, capabilities, and commitment to excellence in mining support services across West Africa.',
