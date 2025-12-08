@@ -218,7 +218,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-001',
     title: 'Yellow Power International - Company Overview 2024',
     thumbnail: '/images/videos/company-overview-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/S6jOoxGpYPQ',
     description: 'Comprehensive overview of YPI\'s services, capabilities, and commitment to excellence in mining support services across West Africa.',
     category: 'Company Overview',
     duration: '5:30',
@@ -228,7 +228,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-002',
     title: 'Sandvik DI550 Surface Drill in Action',
     thumbnail: '/images/videos/sandvik-drill-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/LYCuXGh9vrc',
     description: 'Watch our state-of-the-art Sandvik DI550 surface drill rig in operation, demonstrating precision and efficiency in production drilling.',
     category: 'Equipment Demo',
     duration: '3:45',
@@ -238,7 +238,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-003',
     title: 'Tarkwa Production Drilling Project Success Story',
     thumbnail: '/images/videos/tarkwa-project-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/TjXfmlDXXmw',
     description: 'Highlights from our successful 50,000+ meter production drilling project at Tarkwa Gold Mine, completed ahead of schedule.',
     category: 'Project Showcase',
     duration: '4:20',
@@ -248,7 +248,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-004',
     title: 'Life as a Drill Operator at YPI',
     thumbnail: '/images/videos/drill-operator-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/plB8FtMnbM4',
     description: 'Meet our drill operators and learn about the rewarding career opportunities and training programs available at Yellow Power International.',
     category: 'Employee Stories',
     duration: '6:15',
@@ -258,7 +258,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-005',
     title: 'RC Drilling for Exploration - Technical Overview',
     thumbnail: '/images/videos/rc-drilling-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/E0asqkI5o-E',
     description: 'Technical overview of Reverse Circulation drilling methods and their critical role in mineral exploration.',
     category: 'Equipment Demo',
     duration: '5:00',
@@ -268,7 +268,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-006',
     title: 'YPI Community Impact - Education Initiatives',
     thumbnail: '/images/videos/education-csr-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/nmBdu8w3TmE',
     description: 'How Yellow Power International supports education in mining communities through school renovations and scholarship programs.',
     category: 'CSR Activities',
     duration: '4:40',
@@ -278,7 +278,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-007',
     title: 'Safety First - YPI Safety Culture',
     thumbnail: '/images/videos/safety-culture-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/c7vwyujeGYg',
     description: 'Discover how YPI maintains industry-leading safety standards and has achieved over 1,000 days without a lost-time incident.',
     category: 'Company Overview',
     duration: '5:50',
@@ -288,7 +288,7 @@ export const MEDIA_VIDEOS: MediaVideo[] = [
     id: 'vid-008',
     title: 'Load & Haul Operations Excellence',
     thumbnail: '/images/videos/load-haul-thumb.jpg',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder
+    videoUrl: 'https://www.youtube.com/embed/vi348QAXN3E',
     description: 'Efficient load and haul operations featuring our fleet of Caterpillar haul trucks and Komatsu excavators.',
     category: 'Equipment Demo',
     duration: '3:30',
