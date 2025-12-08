@@ -12,7 +12,7 @@ export default function FounderPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="text-white py-20 pt-32" style={{ backgroundColor: '#003087' }}>
+      <section className="text-white py-20 pt-32" style={{ backgroundColor: '#FDB714' }}>
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
             Founder&apos;s Story

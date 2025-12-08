@@ -42,7 +42,7 @@ export default function CareersPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="text-white py-20" style={{ backgroundColor: '#003087' }}>
+      <section className="text-white py-20" style={{ backgroundColor: '#FDB714' }}>
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <Briefcase className="h-16 w-16 mx-auto mb-6 text-gold" />

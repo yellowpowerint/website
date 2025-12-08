@@ -36,7 +36,7 @@ export default function ServicesPage() {
         suppressHydrationWarning
       />
       {/* Hero */}
-      <section className="text-white py-20" style={{ backgroundColor: '#003087' }}>
+      <section className="text-white py-20" style={{ backgroundColor: '#FDB714' }}>
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">

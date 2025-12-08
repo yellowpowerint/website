@@ -9,13 +9,13 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t text-white" style={{ backgroundColor: '#003087' }}>
+    <footer className="border-t text-white" style={{ backgroundColor: '#FDB714' }}>
       <div className="container py-12 md:py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="font-display text-xl font-bold text-gold mb-4">
+            <h3 className="font-display text-xl font-bold mb-4 text-[#003087]">
               {COMPANY_INFO.name}
             </h3>
             <p className="text-sm text-gray-300 mb-4">
@@ -64,7 +64,7 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold text-gold mb-4">Company</h4>
+            <h4 className="font-semibold mb-4 text-[#003087]">Company</h4>
             <ul className="space-y-2 text-sm">
               {FOOTER_NAV.company.map((link) => (
                 <li key={link.href}>
@@ -81,7 +81,7 @@ export function Footer() {
 
           {/* Services Links */}
           <div>
-            <h4 className="font-semibold text-gold mb-4">Services</h4>
+            <h4 className="font-semibold mb-4 text-[#003087]">Services</h4>
             <ul className="space-y-2 text-sm">
               {FOOTER_NAV.services.map((link) => (
                 <li key={link.href}>
@@ -98,7 +98,7 @@ export function Footer() {
 
           {/* Resources Links */}
           <div>
-            <h4 className="font-semibold text-gold mb-4">Resources</h4>
+            <h4 className="font-semibold mb-4 text-[#003087]">Resources</h4>
             <ul className="space-y-2 text-sm">
               {FOOTER_NAV.resources.map((link) => (
                 <li key={link.href}>
@@ -119,7 +119,9 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
-            © {currentYear} {COMPANY_INFO.name}. All rights reserved.
+            © {currentYear}{' '}
+            <span className="font-semibold text-[#003087]">{COMPANY_INFO.name}</span>
+            {'. All rights reserved.'}
           </p>
           
           {/* Legal Links */}

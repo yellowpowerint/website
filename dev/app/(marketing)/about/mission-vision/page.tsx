@@ -33,7 +33,7 @@ export default function MissionVisionPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="text-white py-20" style={{ backgroundColor: '#003087' }}>
+      <section className="text-white py-20" style={{ backgroundColor: '#FDB714' }}>
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
             Mission & Vision
