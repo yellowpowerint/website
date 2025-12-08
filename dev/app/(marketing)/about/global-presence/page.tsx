@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { MapSection } from "@/components/sections/MapSection";
 import { MapPin, Globe, Users } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { ProjectMap } from "@/components/sections/ProjectMap";
 
 export const metadata: Metadata = {
   title: "Global Presence | Yellow Power International",
@@ -89,7 +89,7 @@ export default function GlobalPresencePage() {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <MapSection offices={offices} />
+            <ProjectMap />
           </div>
         </div>
       </section>
