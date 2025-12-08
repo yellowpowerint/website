@@ -13,8 +13,8 @@ const leaders = [
     bio: "Visionary leader with decades of mining industry experience. Founded YPI in 2017 with a mission to deliver world-class mining support services across Africa.",
   },
   {
-    name: "Kwame Mensah",
-    role: "Chief Operations Officer",
+    name: "Elvis Agobo",
+    role: "Operations Manager",
     bio: "20+ years of operational excellence in mining services. Oversees all drilling and hauling operations across our three African locations.",
   },
   {
