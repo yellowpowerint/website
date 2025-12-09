@@ -62,7 +62,7 @@ export function NewsletterSignup() {
         {isSubmitted ? (
           <div className="flex items-center justify-center gap-2 text-green-400">
             <CheckCircle2 className="h-5 w-5" />
-            <span className="font-medium">Successfully subscribed to our newsletter!</span>
+            <span className="font-medium">Thank you for subscribing.</span>
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">

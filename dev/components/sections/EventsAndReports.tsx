@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import Image from "next/image";
+import { NEWS_ARTICLES } from "@/lib/constants/news";
 
 interface Event {
   date: string;
   month: string;
   year: string;
   title: string;
+  slug: string;
 }
 
 interface Report {
@@ -18,26 +20,23 @@ interface Report {
   downloadLink: string;
 }
 
-const upcomingEvents: Event[] = [
-  {
-    date: "15",
-    month: "Mar",
-    year: "2025",
-    title: "Annual General Meeting and Stakeholder Forum in Accra",
-  },
-  {
-    date: "28",
-    month: "Apr",
-    year: "2025",
-    title: "Safety Excellence Workshop for Mining Operations",
-  },
-  {
-    date: "10",
-    month: "Jun",
-    year: "2025",
-    title: "Mining Technology & Innovation Summit in Ghana",
-  },
-];
+// Use recent news articles as upcoming events, constrained to dates between
+// 15 November 2025 and 9 December 2025.
+const eventArticles = NEWS_ARTICLES.filter((article) => {
+  const date = article.publishedAt;
+  return date >= "2025-11-15" && date <= "2025-12-09";
+}).sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
+
+const upcomingEvents: Event[] = eventArticles.slice(0, 3).map((article) => {
+  const d = new Date(article.publishedAt);
+  return {
+    date: d.getDate().toString().padStart(2, "0"),
+    month: d.toLocaleString("en-US", { month: "short" }),
+    year: d.getFullYear().toString(),
+    title: article.title,
+    slug: article.slug,
+  };
+});
 
 const reports: Report[] = [
   {
@@ -84,9 +83,9 @@ export function EventsAndReports() {
                         <div className="text-sm opacity-90">{event.year}</div>
                       </div>
                       <div className="flex-1">
-                        <p className="text-white text-sm md:text-base leading-relaxed">
+                        <Link href={`/news/${event.slug}`} className="text-white text-sm md:text-base leading-relaxed hover:underline">
                           {event.title}
-                        </p>
+                        </Link>
                       </div>
                     </div>
                   </div>

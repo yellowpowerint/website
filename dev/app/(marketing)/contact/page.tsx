@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, MessageSquare, Facebook, Instagram, Linkedin, Youtube, Twitter, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageSquare, Facebook, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ContactForm } from '@/components/forms/ContactForm';
@@ -215,22 +215,13 @@ export default function ContactPage() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://youtube.com/@yellowpowerinternational"
+              href="https://www.youtube.com/@yellow-power"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-gold-600 transition-colors"
               aria-label="YouTube"
             >
               <Youtube className="h-5 w-5" />
-            </a>
-            <a
-              href="https://x.com/yellowpowerintl"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gold-600 transition-colors"
-              aria-label="X (Twitter)"
-            >
-              <Twitter className="h-5 w-5" />
             </a>
             <a
               href="https://wa.me/233268066942"

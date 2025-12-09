@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Linkedin, Instagram, Youtube } from 'lucide-react';
 
 interface SocialLinksProps {
   variant?: 'default' | 'footer' | 'minimal';
@@ -37,12 +37,6 @@ export function SocialLinks({
       color: 'hover:text-[#1877F2]',
     },
     {
-      name: 'Twitter',
-      url: process.env.NEXT_PUBLIC_TWITTER_URL || '',
-      icon: Twitter,
-      color: 'hover:text-[#1DA1F2]',
-    },
-    {
       name: 'Instagram',
       url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '',
       icon: Instagram,
@@ -50,7 +44,7 @@ export function SocialLinks({
     },
     {
       name: 'YouTube',
-      url: process.env.NEXT_PUBLIC_YOUTUBE_URL || '',
+      url: process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://www.youtube.com/@yellow-power',
       icon: Youtube,
       color: 'hover:text-[#FF0000]',
     },
