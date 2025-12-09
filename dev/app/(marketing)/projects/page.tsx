@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { ProjectCard } from "@/components/sections/ProjectCard";
-import { ProjectFilter, type FilterValues } from "@/components/sections/ProjectFilter";
+import { useEffect } from "react";
 import { ProjectMap } from "@/components/sections/ProjectMap";
-import { PROJECTS } from "@/lib/constants/projects";
 import { MapPin } from "lucide-react";
+import { NEWS_ARTICLES } from "@/lib/constants/news";
+import { NewsGrid } from "@/components/sections/NewsGrid";
 
 // Helper function to get approximate coordinates for project locations
 function getProjectCoordinates(location: string, country: string): { lat: number; lng: number } {
@@ -72,15 +71,18 @@ const COUNTRY_PROJECTS = [
     coordinates: getProjectCoordinates("Burkina Faso", "Burkina Faso"),
     year: "2019",
   },
+  {
+    id: "cote-divoire",
+    name: "Côte d'Ivoire Operations",
+    location: "Côte d'Ivoire",
+    services: ["Drilling", "Load & Haul"],
+    status: "Active",
+    coordinates: getProjectCoordinates("Côte d'Ivoire", "Côte d'Ivoire"),
+    year: "2021",
+  },
 ];
 
 export default function ProjectsPage() {
-  const [filters, setFilters] = useState<FilterValues>({
-    service: "",
-    status: "",
-    country: "",
-  });
-
   // Set document metadata programmatically since client components can't export metadata
   useEffect(() => {
     document.title = "Project Portfolio | Yellow Power International";
@@ -121,18 +123,7 @@ export default function ProjectsPage() {
     }
   }, []);
 
-  const filteredProjects = PROJECTS.filter((project) => {
-    if (filters.service && !project.services.includes(filters.service)) {
-      return false;
-    }
-    if (filters.status && project.status !== filters.status) {
-      return false;
-    }
-    if (filters.country && project.country !== filters.country) {
-      return false;
-    }
-    return true;
-  });
+  const projectArticles = NEWS_ARTICLES.filter((article) => article.category === "Projects");
 
   return (
     <main>
@@ -147,12 +138,6 @@ export default function ProjectsPage() {
               From precision drilling to complete infrastructure development, we deliver excellence.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-gray-50">
-        <div className="container">
-          <ProjectFilter onFilterChange={setFilters} currentFilters={filters} />
         </div>
       </section>
 
@@ -194,29 +179,41 @@ export default function ProjectsPage() {
         </div>
       </section>
 
+      {/* Ghana project sites */}
       <section className="py-16 bg-gray-50">
-        <div className="container">
-          {filteredProjects.length > 0 ? (
-            <>
-              <p className="text-gray-600 mb-8">
-                Showing {filteredProjects.length} of {PROJECTS.length} projects
-              </p>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredProjects.map((project) => (
-                  <ProjectCard key={project.slug} project={project} />
-                ))}
+        <div className="container max-w-4xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Current Project Sites in Ghana</h2>
+          <p className="text-gray-600 mb-8">
+            Yellow Power International is currently supporting mining operations at the following sites in Ghana:
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {["BENSO", "DMH", "BIBIANI", "FIMBIASSO", "AKROKERRI", "WASSA AKYEMPIM"].map((site) => (
+              <div
+                key={site}
+                className="flex items-center gap-3 bg-white rounded-lg shadow-sm px-4 py-3"
+              >
+                <MapPin className="h-4 w-4 text-gold-500" />
+                <span className="font-medium text-gray-800">{site}</span>
               </div>
-            </>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600 text-lg">
-                No projects match your filter criteria. Try adjusting your filters.
-              </p>
-            </div>
-          )}
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News-driven project updates */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Current Projects & Site Updates</h2>
+            <p className="text-gray-600">
+              The following project stories from our news section highlight active works and recent milestones
+              across our operations.
+            </p>
+          </div>
+
+          <NewsGrid articles={projectArticles} columns={3} showExcerpt={true} />
         </div>
       </section>
     </main>
   );
 }
-

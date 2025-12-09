@@ -23,7 +23,7 @@ const features: FeatureCard[] = [
   {
     image: "/images/home-cards/where-we-operate.jpg",
     title: "Where We Operate",
-    description: "Operating across 3 African countries with our headquarters in Madina, Greater Accra, Ghana. We bring world-class mining support services to West Africa's most dynamic mining regions.",
+    description: "Operating across 4 African countries (Ghana, Côte d'Ivoire, Mali, Burkina Faso) and Canada, with our headquarters in Madina, Greater Accra, Ghana. We bring world-class mining support services to West Africa's most dynamic mining regions.",
     link: "/about/global-presence",
     linkText: "View Our Locations"
   },
