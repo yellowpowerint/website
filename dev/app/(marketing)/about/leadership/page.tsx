@@ -16,7 +16,7 @@ const leaders = [
   {
     name: "Elvis Agobo",
     role: "Operations Manager",
-    bio: "20+ years of operational excellence in mining services. Oversees all drilling and hauling operations across our three African locations.",
+    bio: "Elvis Agobo has accrued credible local and expatriate experience around Mining and related operations in West Africa and Africa at large.",
     photo: "/images/leadership/elvis-agobo.jpg",
   },
   {
@@ -44,6 +44,36 @@ const leaders = [
     name: "Yaw Addo",
     role: "VP of Equipment & Technology",
     bio: "Technology innovator bringing modern solutions to mining operations. Manages our fleet and implements cutting-edge drilling systems.",
+  },
+  {
+    name: "Senyo Fleku",
+    role: "Finance Manager",
+    bio: "Senyo Fleku is a knowledgeable Finance Manager with over 10 years proven history of working in the banking sector and mining industry. Skilled in Negotiation, Business Planning, Financial Risk, and Risk Management.",
+    photo: "/images/leadership/senyo-fleku.jpg",
+  },
+  {
+    name: "Henry Odonkor",
+    role: "Human Resource Manager",
+    bio: "Mr. Odonkor has got extensive training and working experience in the Mining Industry and Public Relations. Holder of Master in Corporate Communications and Human Resources Management.",
+    photo: "/images/leadership/henry-odonkor.jpg",
+  },
+  {
+    name: "Solomon Kuupole",
+    role: "Commercial Manager",
+    bio: "Solomon Kuupole is an experienced Commercial Manager with a demonstrated history of working in the mining & metals industry. Skilled in SAP Warehouse Management, Warehouse Operations, Marketing, Team Leadership, and SAP Products. Strong operations professional graduated from University of Ghana.",
+    photo: "/images/leadership/solomon-kuupole.jpg",
+  },
+  {
+    name: "Michael Oduro-Debrah",
+    role: "Systems Admin. Manager",
+    bio: "An experienced Computer scientist, an expert in infrastructure, security planning and daily operations management. He is accustomed to driving efficiency and effectiveness by developing, delivering and supporting strategic plans and guiding navigation of modern technology, optimizing security standards, improving planning processes and managing systems implementation.",
+    photo: "/images/leadership/michael-oduro-debrah.jpg",
+  },
+  {
+    name: "Grace A. Hackman",
+    role: "Manager, Recruitment",
+    bio: "Grace Hackman is a dedicated Recruitment Manager at Yellow Power International, where she leads the company’s talent acquisition and workforce development efforts. With strong expertise in recruitment, employee relations, and talent management, she ensures the company attracts, hires, and retains top industry professionals to support its operations.",
+    photo: "/images/leadership/Grace-Animah-Hackman.jpg",
   },
 ];
 
