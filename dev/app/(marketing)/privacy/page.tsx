@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Privacy Policy</h1>
           <p className="text-gray-200 text-lg leading-relaxed">
-            Yellow Power International ("Yellow Power", "we", "us", or "our") is committed to protecting
+            Yellow Power International (&quot;Yellow Power&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting
             your privacy and handling your personal information responsibly. This Privacy Policy explains
             how we collect, use, and safeguard information when you visit our website or interact with us
             online.
@@ -97,7 +97,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-semibold text-navy mb-3">7. Updates to This Policy</h2>
             <p>
               We may update this Privacy Policy from time to time to reflect changes in our practices or
-              applicable laws. The updated version will be indicated by a revised "Last updated" date on
+              applicable laws. The updated version will be indicated by a revised &quot;Last updated&quot; date on
               this page.
             </p>
           </section>

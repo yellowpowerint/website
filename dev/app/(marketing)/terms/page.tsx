@@ -12,8 +12,8 @@ export default function TermsOfServicePage() {
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Terms of Service</h1>
           <p className="text-gray-200 text-lg leading-relaxed">
-            These Terms of Service ("Terms") govern your use of the Yellow Power International
-            ("Yellow Power", "we", "us", or "our") website and any content, information, or
+            These Terms of Service (&quot;Terms&quot;) govern your use of the Yellow Power International
+            (&quot;Yellow Power&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) website and any content, information, or
             services made available through it. By accessing or using this site, you agree to be
             bound by these Terms.
           </p>
@@ -75,8 +75,8 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-semibold text-navy mb-3">6. Changes to These Terms</h2>
             <p>
               We may update these Terms from time to time to reflect changes in our practices or
-              applicable laws. Any changes will be posted on this page with an updated "Last
-              updated" date. Your continued use of the website following any changes constitutes
+              applicable laws. Any changes will be posted on this page with an updated &quot;Last
+              updated&quot; date. Your continued use of the website following any changes constitutes
               your acceptance of the revised Terms.
             </p>
           </section>

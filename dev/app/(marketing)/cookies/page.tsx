@@ -12,8 +12,8 @@ export default function CookiePolicyPage() {
         <div className="container max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Cookie Policy</h1>
           <p className="text-gray-200 text-lg leading-relaxed">
-            This Cookie Policy explains how Yellow Power International ("Yellow Power", "we", "us",
-            or "our") uses cookies and similar technologies on our website to improve performance,
+            This Cookie Policy explains how Yellow Power International (&quot;Yellow Power&quot;, &quot;we&quot;, &quot;us&quot;,
+            or &quot;our&quot;) uses cookies and similar technologies on our website to improve performance,
             enhance user experience, and understand how our digital channels are used.
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function CookiePolicyPage() {
             <p>
               We may update this Cookie Policy from time to time to reflect changes in how we use
               cookies or due to legal or regulatory requirements. Any updates will be posted on this
-              page with a revised "Last updated" date.
+              page with a revised &quot;Last updated&quot; date.
             </p>
           </section>
 
