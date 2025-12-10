@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Search, TrendingUp } from "lucide-react";
+import { Search, TrendingUp, TrendingDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SearchModal } from "@/components/shared/SearchModal";
 import { cn } from "@/lib/utils";
@@ -69,12 +69,21 @@ export function TopBar() {
                   commodity.name !== "Gold" && "hidden sm:flex"
                 )}
               >
-                <TrendingUp
-                  className={cn(
-                    "h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0",
-                    isPositive ? "text-green-400" : "text-red-400"
-                  )}
-                />
+                {isPositive ? (
+                  <TrendingUp
+                    className={cn(
+                      "h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0",
+                      "text-green-400"
+                    )}
+                  />
+                ) : (
+                  <TrendingDown
+                    className={cn(
+                      "h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0",
+                      "text-red-400"
+                    )}
+                  />
+                )}
                 <span className="text-gold-500 hidden sm:inline">{commodity.displayName}</span>
                 <span className="text-gold-500 sm:hidden">{commodity.symbol}</span>
                 <span
