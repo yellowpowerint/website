@@ -55,12 +55,6 @@ const leaders = [
     bio: "An experienced Computer scientist, an expert in infrastructure, security planning and daily operations management. He is accustomed to driving efficiency and effectiveness by developing, delivering and supporting strategic plans and guiding navigation of modern technology, optimizing security standards, improving planning processes and managing systems implementation.",
     photo: "/images/leadership/michael-oduro-debrah.jpg",
   },
-  {
-    name: "Grace A. Hackman",
-    role: "Manager, Recruitment",
-    bio: "Grace Hackman is a dedicated Recruitment Manager at Yellow Power International, where she leads the company’s talent acquisition and workforce development efforts. With strong expertise in recruitment, employee relations, and talent management, she ensures the company attracts, hires, and retains top industry professionals to support its operations.",
-    photo: "/images/leadership/Grace-Animah-Hackman.jpg",
-  },
 ];
 
 export default function LeadershipPage() {

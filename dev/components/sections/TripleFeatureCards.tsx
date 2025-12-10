@@ -30,7 +30,7 @@ const features: FeatureCard[] = [
   {
     image: "/images/home-cards/join-our-team.jpg",
     title: "Join Our Team",
-    description: "Building careers in mining excellence since 2017. With over 200 employees, we offer opportunities for growth, professional development, and a commitment to safety first, always.",
+    description: "Building careers in mining excellence since 2017. With over 927 employees, we offer opportunities for growth, professional development, and a commitment to safety first, always.",
     link: "/careers",
     linkText: "Explore Career Opportunities"
   }

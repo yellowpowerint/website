@@ -8,7 +8,7 @@ export const COMPANY_INFO = {
   founded: 2017,
   founder: 'Mr. Emmanuel Kweku Ganu',
   location: 'Madina, Greater Accra, Ghana',
-  employees: '201-500',
+  employees: '927+',
   offices: 3,
   phone1: '+233268066942',
   phone2: '0550099130',
