@@ -34,7 +34,7 @@ const cards: InfoCard[] = [
 
 export function InfoCards() {
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-16 md:py-20 bg-gray-50 md:bg-white border-t border-gray-200 md:border-t-0">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {cards.map((card, index) => (
