@@ -15,7 +15,7 @@ const cards: InfoCard[] = [
   {
     image: "/images/home/info-cards/making-positive-impact.jpg",
     title: "Making a positive impact",
-    description: "We are committed to finding new ways of operating more sustainably while delivering world-class drilling and mining support services that are essential for West Africa's mining future.",
+    description: "As corporate sponsors of Vision Football Club, we invest in youth development and community pride—supporting talent on and off the pitch while continuing to deliver reliable mining support services.",
     link: "/sustainability"
   },
   {
