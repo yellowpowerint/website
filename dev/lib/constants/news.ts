@@ -24,6 +24,26 @@ export interface PressRelease {
 // Sample news articles
 export const NEWS_ARTICLES: NewsArticle[] = [
   {
+    slug: 'all-smiles-at-bibiani-site',
+    title: 'All smiles at Bibiani site',
+    excerpt:
+      'Yellow Power International teams at Bibiani marked another strong shift with a focus on safety, uptime, and teamwork—keeping drilling and mining support operations running smoothly.',
+    content: `
+      <p>There were plenty of reasons to smile at Yellow Power International’s Bibiani site this week as our field teams wrapped up another high-performing shift with safety, coordination, and equipment readiness at the center of operations. The positive energy on site reflects the professionalism and commitment our people bring every day—whether supporting drilling, load &amp; haul, or civil works activities for our mining partners.</p>
+
+      <p>From pre-start inspections to end-of-shift reporting, the Bibiani crews maintained strict adherence to HSE standards while delivering reliable output. Our supervisors and operators worked side-by-side to keep equipment availability high and ensure work fronts remained productive, even under changing site conditions.</p>
+
+      <p>Yellow Power International continues to strengthen its operational footprint across Ghana by investing in people, procedures, and fleet reliability. Moments like these—where teams can pause for a quick photo and share a laugh—are a reminder that strong performance is built on strong culture.</p>
+
+      <p>We thank our Bibiani teams and our client partners for their ongoing collaboration as we continue delivering safe, efficient, and dependable mining support services across West Africa.</p>
+    `,
+    category: 'Company News',
+    tags: ['Bibiani', 'Site Operations', 'Safety', 'Teamwork', 'Mining Support'],
+    publishedAt: '2025-12-17',
+    author: 'YPI Communications Team',
+    heroImage: '/images/news/staff-all-smiles-in-bibini-site.jpg',
+  },
+  {
     slug: 'wassa-akyempim-golden-star-project-day-6',
     title: 'Wassa Akyempim Golden Star Project Day 6',
     excerpt:

@@ -22,10 +22,9 @@ interface Report {
 
 // Use recent news articles as upcoming events, constrained to dates between
 // 15 November 2025 and 9 December 2025.
-const eventArticles = NEWS_ARTICLES.filter((article) => {
-  const date = article.publishedAt;
-  return date >= "2025-11-15" && date <= "2025-12-09";
-}).sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
+const eventArticles = [...NEWS_ARTICLES].sort((a, b) =>
+  a.publishedAt < b.publishedAt ? 1 : -1
+);
 
 const upcomingEvents: Event[] = eventArticles.slice(0, 3).map((article) => {
   const d = new Date(article.publishedAt);
