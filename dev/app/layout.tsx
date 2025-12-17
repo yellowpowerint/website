@@ -25,8 +25,8 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   ...DEFAULT_METADATA,
   icons: {
-    icon: [{ url: "/images/favicon.jpg", type: "image/jpeg" }],
-    shortcut: [{ url: "/images/favicon.jpg", type: "image/jpeg" }],
+    icon: [{ url: "/images/favicon.png", type: "image/png" }],
+    shortcut: [{ url: "/images/favicon.png", type: "image/png" }],
   },
 };
 
@@ -43,7 +43,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
           suppressHydrationWarning
         />
-        <link rel="icon" href="/images/favicon.jpg" type="image/jpeg" />
+        <link rel="icon" href="/images/favicon.png" type="image/png" />
       </head>
       <body className="antialiased font-sans">
         <RootLayoutWrapper>{children}</RootLayoutWrapper>
