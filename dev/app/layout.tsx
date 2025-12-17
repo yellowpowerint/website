@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
+import { RootLayoutWrapper } from "@/components/layouts/RootLayout";
 import { PowerBot } from "@/components/ai/PowerBot";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import "../styles/globals.css";
@@ -21,9 +22,13 @@ const robotoMono = Roboto_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = DEFAULT_METADATA;
-
-import { RootLayoutWrapper } from "@/components/layouts/RootLayout";
+export const metadata: Metadata = {
+  ...DEFAULT_METADATA,
+  icons: {
+    icon: [{ url: "/images/favicon.jpg", type: "image/jpeg" }],
+    shortcut: [{ url: "/images/favicon.jpg", type: "image/jpeg" }],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -38,6 +43,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
           suppressHydrationWarning
         />
+        <link rel="icon" href="/images/favicon.jpg" type="image/jpeg" />
       </head>
       <body className="antialiased font-sans">
         <RootLayoutWrapper>{children}</RootLayoutWrapper>
