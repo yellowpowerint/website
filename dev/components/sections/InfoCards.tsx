@@ -21,7 +21,7 @@ const cards: InfoCard[] = [
   {
     image: "/images/home/info-cards/excellence-since-2017excellence-since-2017.jpg",
     title: "Excellence since 2017",
-    description: "Since our founding in 2017, we&apos;ve been at the forefront of Ghana&apos;s mining industry, delivering exceptional drilling services and continuously raising standards of operational excellence.",
+    description: "Since our founding in 2017, we have been at the forefront of Ghana&apos;s mining industry, delivering exceptional drilling services and continuously raising standards of operational excellence.",
     link: "/about"
   },
   {
