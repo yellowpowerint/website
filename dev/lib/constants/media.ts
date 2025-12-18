@@ -23,6 +23,7 @@ export interface MediaVideo {
   publishedAt: string;
 }
 
+
 // Sample media images
 export const MEDIA_IMAGES: MediaImage[] = [
   // Equipment category
@@ -216,12 +217,11 @@ export const MEDIA_IMAGES: MediaImage[] = [
 export const MEDIA_VIDEOS: MediaVideo[] = [
   {
     id: 'vid-001',
-    title: 'Ten 100 toner Komatsu dump trucks to Bibiani Site',
-    thumbnail: 'https://img.youtube.com/vi/GNqQ2P3ith8/hqdefault.jpg',
-    videoUrl: 'https://www.youtube.com/embed/GNqQ2P3ith8',
-    description: 'Comprehensive overview of YPI\'s services, capabilities, and commitment to excellence in mining support services across West Africa.',
+    title: 'Laser monitoring taking Coordinates in Benso',
+    thumbnail: 'https://img.youtube.com/vi/jE8WQfc9CuA/hqdefault.jpg',
+    videoUrl: 'https://www.youtube.com/embed/jE8WQfc9CuA',
+    description: 'Field footage showing laser monitoring work as coordinates are taken at the Benso site.',
     category: 'Project Showcase',
-    duration: '5:30',
     publishedAt: '2025-12-09',
   },
   {

@@ -6,9 +6,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { MEDIA_VIDEOS, type MediaVideo } from "@/lib/constants/media";
 
-const MAIN_VIDEO_SUMMARY = `Yellow Power International operates at the intersection of technical excellence, operational discipline, and deep commitment to the communities we serve. This feature video introduces how our drilling, load and haul, and construction teams work together across multiple sites in West Africa to keep projects moving safely and on schedule. Viewers get a behind-the-scenes look at our modern fleet, our planning process, and the standards we apply before a single machine starts up for the day. 
+const MAIN_VIDEO_SUMMARY = `This field video captures laser monitoring work in progress as coordinates are taken at the Benso site. It highlights the practical setup on location, the measurement workflow, and the coordination required to record accurate points efficiently.
 
-Beyond equipment, the story focuses on people: supervisors, drill operators, maintenance specialists, and safety leaders who bring decades of experience to every shift. The video walks through how we train and mentor new team members, how we embed a "zero harm" mindset in daily toolbox talks, and how we use real-time data to improve productivity without compromising safety. It also highlights examples of collaboration with clients, from early project design through to handover, showing how Yellow Power International strives to be a long-term partner, not just a contractor.`;
+By documenting the process from the ground, the clip gives a clear view of how on-site teams collect and verify coordinate information to support safe, well-planned operations.`;
 
 function getSummaryForVideo(video: MediaVideo): string {
   if (video.id === "vid-001") {
