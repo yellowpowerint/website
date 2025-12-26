@@ -1,0 +1,194 @@
+I notice you have a typo in the domain names - they show `.ccom` instead of `.com`. Let me update the deployment scripts to use the correct domains:
+
+- **ERP App:** https://erp.yellowpowerinternational.com
+- **Main Website:** https://yellowpowerinternational.com
+
+Good catch! The scripts already use the correct `.com` domains. I just want to confirm - you mentioned the website has **no backend and no database**. Let me verify the deployment configuration handles this correctly.
+
+Perfect! The scripts are already configured correctly for both applications:
+
+## Current Configuration ✓
+
+**ERP Application (with backend + database):**
+- URL: https://erp.yellowpowerinternational.com
+- Backend API: Port 3000
+- Frontend: Port 3001
+- Database: PostgreSQL
+
+**Main Website (Next.js only, no backend):**
+- URL: https://yellowpowerinternational.com
+- Frontend: Port 3002
+- No database connection needed
+
+The deployment script already handles this correctly:
+- It checks if `/var/www/yellowpower-website` exists
+- If the website repo is there, it builds and deploys it
+- If not, it skips it without errors
+
+## To Deploy the Website
+
+You have two options:
+
+**Option 1: Deploy website later (manual)**
+After the ERP is deployed, SSH into the VPS and clone your website repo:
+```bash
+ssh deploy@216.158.230.187
+cd /var/www/yellowpower-website
+git clone git@github.com:YOUR_ORG/website-repo.git .
+npm install --production
+npm run build
+pm2 start npm --name main-website -- start -- -p 3002
+pm2 save
+```
+
+**Option 2: Include in automated deployment**
+If you want the script to deploy the website automatically, just ensure:
+1. The website repository is accessible via GitHub
+2. You'll be prompted to add the GitHub SSH key (same as for ERP repo)
+3. The script will handle the rest
+
+Both domains will work on the same VPS with the same IP address (216.158.230.187). The Nginx configuration already routes:
+- `yellowpowerinternational.com` → Port 3002 (website)
+- `erp.yellowpowerinternational.com` → Port 3001 (frontend) + Port 3000 (backend API)
+
+You can proceed with the deployment now using:
+```powershell
+.\scripts\deploy-vps.ps1
+```
+
+----------
+
+I'll create a PowerShell deployment script that automates the entire process via SSH. This will handle installation, code transfer, environment setup, build, and Nginx configuration.
+
+
+
+
+
+
+
+
+
+## ✅ Deployment Script Created
+
+I've created an automated PowerShell deployment script that handles the entire deployment process via SSH.
+
+### 📁 Files Created
+
+1. **[deploy-to-interserver.ps1](cci:7://file:///c:/Users/Plange/Downloads/Projects/ypi-website/deploy-to-interserver.ps1:0:0-0:0)** - Automated deployment script
+2. **[DEPLOYMENT.md](cci:7://file:///c:/Users/Plange/Downloads/Projects/ypi-website/DEPLOYMENT.md:0:0-0:0)** - Complete deployment guide and documentation
+
+---
+
+## 🚀 How to Deploy
+
+### Step 1: Run the Deployment Script
+
+Open PowerShell in the project directory:
+
+```powershell
+cd c:\Users\Plange\Downloads\Projects\ypi-website
+.\deploy-to-interserver.ps1 -ServerPassword "Tu4Pu8_Co9-Fug6_K4-Bi0"
+```
+
+The script will automatically:
+- ✅ Install Node.js 20, PM2, and Nginx on the server
+- ✅ Transfer your website files (excluding node_modules)
+- ✅ Create production environment file with secure secrets
+- ✅ Install dependencies and build the Next.js app
+- ✅ Start the app with PM2 on port 3002
+- ✅ Configure Nginx reverse proxy
+- ✅ Set up firewall rules
+
+**Duration:** ~5-10 minutes depending on connection speed
+
+---
+
+### Step 2: Test the Deployment
+
+After the script completes, visit:
+- **Website:** `http://216.158.230.187`
+- **Admin Dashboard:** `http://216.158.230.187/admin`
+
+---
+
+### Step 3: Connect Domain + SSL
+
+#### Configure DNS (in your domain registrar):
+
+| Type | Name | Value | TTL |
+|------|------|-------|-----|
+| A | @ | 216.158.230.187 | 300 |
+| A | www | 216.158.230.187 | 300 |
+
+Wait 5-15 minutes for DNS propagation.
+
+#### Re-deploy with Domain:
+
+```powershell
+.\deploy-to-interserver.ps1 -ServerPassword "Tu4Pu8_Co9-Fug6_K4-Bi0" -Domain "yellowpowerinternational.com"
+```
+
+#### Install SSL Certificate:
+
+```bash
+ssh root@216.158.230.187
+apt install -y certbot python3-certbot-nginx
+certbot --nginx -d yellowpowerinternational.com -d www.yellowpowerinternational.com
+```
+
+---
+
+## 🔧 Useful Commands
+
+**View application logs:**
+```bash
+ssh root@216.158.230.187 "pm2 logs ypi-website"
+```
+
+**Restart application:**
+```bash
+ssh root@216.158.230.187 "pm2 restart ypi-website"
+```
+
+**Check application status:**
+```bash
+ssh root@216.158.230.187 "pm2 status"
+```
+
+---
+
+## 🔐 Security Note
+
+After successful deployment, change your SSH password:
+
+```bash
+ssh root@216.158.230.187
+passwd
+```
+
+Or set up SSH key authentication (recommended) - instructions in [DEPLOYMENT.md](cci:7://file:///c:/Users/Plange/Downloads/Projects/ypi-website/DEPLOYMENT.md:0:0-0:0).
+
+---
+
+## 📚 Documentation
+
+Full documentation available in **[DEPLOYMENT.md](cci:7://file:///c:/Users/Plange/Downloads/Projects/ypi-website/DEPLOYMENT.md:0:0-0:0)** including:
+- Detailed script parameters
+- Post-deployment steps
+- Security recommendations
+- Troubleshooting guide
+- Backup/restore procedures
+- Optional features (email, AI)
+
+---
+
+## Summary
+
+**Deployment automation complete:**
+- ✅ PowerShell script with full SSH automation
+- ✅ Handles Ubuntu 24.04 server setup
+- ✅ Transfers code, builds app, configures Nginx
+- ✅ Comprehensive documentation
+- ✅ Ready to deploy with one command
+
+**Next action:** Run the deployment script to push your website live.

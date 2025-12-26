@@ -1,0 +1,21 @@
+The `pscp` command isn't found. You need to run the upload from **Windows PowerShell**, not PuTTY. Let me give you the correct steps:
+
+**On Windows (PowerShell/Command Prompt):**
+
+```powershell
+cd "C:\Users\Plange\Downloads\Projects"
+pscp setup-github-autodeploy.sh root@216.158.230.187:/root/
+```
+
+Enter your VPS password when prompted.
+
+**Then in PuTTY:**
+
+```bash
+chmod +x /root/setup-github-autodeploy.sh
+/root/setup-github-autodeploy.sh
+```
+
+The script will install the webhook listener and configure everything. It will output the webhook secrets and URLs that you'll need to configure in GitHub.
+
+Try uploading from Windows PowerShell first, then run the script in PuTTY.
