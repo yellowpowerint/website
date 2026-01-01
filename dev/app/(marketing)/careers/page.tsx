@@ -5,16 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { JobCard } from "@/components/sections/JobCard";
 import { BenefitsGrid } from "@/components/sections/BenefitsGrid";
 import { EmployeeTestimonial } from "@/components/ui/EmployeeTestimonial";
-import { getRecentJobs, BENEFITS, EMPLOYEE_TESTIMONIALS, JOB_CATEGORIES } from "@/lib/constants/careers";
+import { BENEFITS, EMPLOYEE_TESTIMONIALS, JOB_CATEGORIES } from "@/lib/constants/careers";
 import { Users, TrendingUp, Award, Heart, ArrowRight, Briefcase } from "lucide-react";
+import { getJobs } from "@/lib/api/erp-careers";
 
 export const metadata: Metadata = {
   title: "Careers at Yellow Power International | Join Our Team",
   description: "Explore career opportunities at Yellow Power International. Competitive benefits, training programs, and clear career paths in the mining services industry across West Africa.",
 };
 
-export default function CareersPage() {
-  const recentJobs = getRecentJobs(3);
+export default async function CareersPage() {
+  const allJobs = await getJobs();
+  const recentJobs = allJobs.slice(0, 3);
 
   const evpPillars = [
     {
@@ -135,7 +137,7 @@ export default function CareersPage() {
           <div className="text-center">
             <Button size="lg" className="bg-gold hover:bg-gold-600 text-navy" asChild>
               <Link href="/careers/jobs">
-                View All {recentJobs.length > 3 ? "50+" : ""} Open Positions
+                View All {allJobs.length} Open Positions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

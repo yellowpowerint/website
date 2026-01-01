@@ -6,7 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { JobApplicationForm } from "@/components/forms/JobApplicationForm";
-import { getJobById, getCategoryById, JOBS } from "@/lib/constants/careers";
+import { getJobById as getJobByIdERP } from "@/lib/api/erp-careers";
+import { getCategoryById } from "@/lib/constants/careers";
 import { MapPin, Briefcase, TrendingUp, Calendar, CheckCircle2, DollarSign, ArrowLeft } from "lucide-react";
 import { buildMetadata } from "@/lib/seo/config";
 import { generateBreadcrumbSchema, COMMON_BREADCRUMBS } from "@/lib/structured-data/breadcrumbs";
@@ -17,15 +18,8 @@ interface JobPageProps {
   };
 }
 
-// Generate static params for all jobs
-export async function generateStaticParams() {
-  return JOBS.map((job) => ({
-    jobId: job.jobId,
-  }));
-}
-
 export async function generateMetadata({ params }: JobPageProps): Promise<Metadata> {
-  const job = getJobById(params.jobId);
+  const job = await getJobByIdERP(params.jobId);
 
   if (!job) {
     return {
@@ -41,20 +35,26 @@ export async function generateMetadata({ params }: JobPageProps): Promise<Metada
   });
 }
 
-export default function JobPage({ params }: JobPageProps) {
-  const job = getJobById(params.jobId);
+export default async function JobPage({ params }: JobPageProps) {
+  const job = await getJobByIdERP(params.jobId);
 
   if (!job) {
     notFound();
   }
 
-  const category = getCategoryById(job.categoryId);
+  const category = getCategoryById(job.department);
+
+  // Parse requirements, responsibilities, qualifications, benefits from text
+  const requirements = job.requirements ? job.requirements.split('\n').filter(Boolean) : [];
+  const responsibilities = job.responsibilities ? job.responsibilities.split('\n').filter(Boolean) : [];
+  const qualifications = job.qualifications ? job.qualifications.split('\n').filter(Boolean) : [];
+  const benefits = job.benefits ? job.benefits.split('\n').filter(Boolean) : [];
 
   // Create JobPosting structured data
   const employmentTypeMap: Record<string, string> = {
-    "Full-time": "FULL_TIME",
-    "Part-time": "PART_TIME",
-    "Contract": "CONTRACTOR",
+    "FULL_TIME": "FULL_TIME",
+    "PART_TIME": "PART_TIME",
+    "CONTRACT": "CONTRACTOR",
   };
 
   const jobPostingSchema = {
@@ -62,8 +62,8 @@ export default function JobPage({ params }: JobPageProps) {
     "@type": "JobPosting",
     title: job.title,
     description: job.description,
-    datePosted: job.postedDate,
-    employmentType: employmentTypeMap[job.employmentType] || "FULL_TIME",
+    datePosted: job.openDate,
+    employmentType: employmentTypeMap[job.jobType] || "FULL_TIME",
     hiringOrganization: {
       "@type": "Organization",
       name: "Yellow Power International",
@@ -77,13 +77,14 @@ export default function JobPage({ params }: JobPageProps) {
         addressCountry: "GH",
       },
     },
-    ...(job.salary && {
+    ...((job.salaryMin || job.salaryMax) && {
       baseSalary: {
         "@type": "MonetaryAmount",
         currency: "GHS",
         value: {
           "@type": "QuantitativeValue",
-          value: job.salary,
+          minValue: job.salaryMin,
+          maxValue: job.salaryMax,
           unitText: "MONTH",
         },
       },
@@ -125,10 +126,10 @@ export default function JobPage({ params }: JobPageProps) {
 
           <div className="flex flex-wrap gap-3 mb-4">
             <Badge variant="outline" className="border-gold text-gold">
-              {category?.name || "General"}
+              {category?.name || job.department}
             </Badge>
             <Badge variant="outline" className="border-white text-white">
-              {job.employmentType}
+              {job.jobType}
             </Badge>
           </div>
 
@@ -141,22 +142,20 @@ export default function JobPage({ params }: JobPageProps) {
             </div>
             <div className="flex items-center gap-2">
               <Briefcase className="h-5 w-5" />
-              <span>{job.employmentType}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5" />
-              <span>{job.experienceLevel}</span>
+              <span>{job.jobType}</span>
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5" />
-              <span>Posted {new Date(job.postedDate).toLocaleDateString()}</span>
+              <span>Posted {new Date(job.openDate).toLocaleDateString()}</span>
             </div>
           </div>
 
-          {job.salary && (
+          {(job.salaryMin || job.salaryMax) && (
             <div className="mt-6 inline-flex items-center gap-2 bg-gold/20 px-4 py-2 rounded-lg">
               <DollarSign className="h-5 w-5 text-gold" />
-              <span className="font-semibold text-gold">{job.salary}</span>
+              <span className="font-semibold text-gold">
+                {job.salaryMin && job.salaryMax ? `GHS ${job.salaryMin.toLocaleString()} - ${job.salaryMax.toLocaleString()}` : 'Competitive'}
+              </span>
             </div>
           )}
         </div>
